@@ -1,5 +1,44 @@
-.main-container {
+.outer-wrapper {
+    width: 100%;
+}
+
+.nav-container {
+    width: 100%;
+}
+
+.page-container {
     margin-top: 60px;
 }
 
-@import './styles/nav.css';
+button {
+    background-color: var(--tone3);
+    color: white;
+}
+
+button,
+input {
+    border: 1px solid var(--tone3-light);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+h3{
+  color: var(--tone2);
+}
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+    .outer-wrapper {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+    }
+    .page-container {
+        width: 75%;
+    }
+    .nav-container {
+        width: 75%;
+    }
+}

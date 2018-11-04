@@ -1,8 +1,38 @@
+:root {
+    /* colors */
+    --tone1: #4b98d2;
+    --tone1-light: #87c7ed;
+    --tone2: #d51383;
+    --tone2-light: #e180b4;
+    --tone3: #4da547;
+    --tone3-light: #95cb5e;
+    --tone4: #f4f0ee;
+    --tone4-dark: #e9dfd9;
+    --bg-light: var(--tone4);
+    --bg-dark: var(--tone1);
+    --text-light: var(--tone4-dark);
+    /* fonts */
+    --body-font: 'Assistant', sans-serif;
+}
+
 html,
 body {
     padding: 0;
     margin: 0;
     direction: rtl;
+    background-color: var(--bg-light);
+    font-family: var(--body-font);
 }
 
-@import '../node_modules/semantic-ui-css/semantic.min.css';
+@font-face {
+    font-family: 'Assistant';
+    src: local('Assistant'), url('./fonts/Assistant/Assistant-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Assistant';
+    src: local('Assistant'), url('./fonts/Assistant/Assistant-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@import './styles/nav.css';

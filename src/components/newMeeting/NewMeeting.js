@@ -4,7 +4,8 @@ import NewMeetingForm from './NewMeetingForm';
 class NewMeeting extends Component {
     render() {
         return (
-            <div>
+            <div className='main-container'>
+            <h3>הוספת פגישה</h3>
                 <NewMeetingForm />
             </div>
         );

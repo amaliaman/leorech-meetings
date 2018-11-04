@@ -5,7 +5,7 @@ import MeetingsTable from './MeetingsTable';
 class Home extends Component {
     render() {
         return (
-            <div>
+            <div className='main-container'>
                 <MeetingsTable />
             </div>
         );
