@@ -2,10 +2,6 @@
     width: 100%;
 }
 
-.nav-container {
-    width: 100%;
-}
-
 .page-container {
     margin-top: 60px;
 }
@@ -21,12 +17,12 @@ input {
     padding: 10px;
     border-radius: 10px;
     transition-property: border-radius;
-    transition-duration: 2s;
+    transition-duration: 1s;
 }
 
 button:focus,
 input:focus {
-    outline: 1px solid var(--tone4-dark);
+    outline: 2px solid var(--tone4-dark);
     border-radius: 0;
 }
 

@@ -8,11 +8,13 @@
     --tone3-light: #95cb5e;
     --tone4: #f4f0ee;
     --tone4-dark: #e9dfd9;
+    --shadow:#333333;
     --bg-light: var(--tone4);
     --bg-dark: var(--tone1);
     --text-light: var(--tone4-dark);
     /* fonts */
     --body-font: 'Assistant', sans-serif;
+    --text-shadow: 1px 1px 1px var(--shadow);
 }
 
 html,
