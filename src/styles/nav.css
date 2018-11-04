@@ -50,8 +50,7 @@
 
 .header li a:hover,
 .header .menu-btn:hover,
-.logo-text:hover {
-    /* background-color: #f4f4f4; */
+.logo:hover {
     color: var(--text-light);
 }
 

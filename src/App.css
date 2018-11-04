@@ -17,14 +17,21 @@ button {
 
 button,
 input {
-    border: 1px solid var(--tone3-light);
-    padding: 5px;
-    border-radius: 5px;
-    margin: 0 5px;
+    border: 1px solid var(--tone4-dark);
+    padding: 10px;
+    border-radius: 10px;
+    transition-property: border-radius;
+    transition-duration: 2s;
 }
 
-h3{
-  color: var(--tone2);
+button:focus,
+input:focus {
+    outline: 1px solid var(--tone4-dark);
+    border-radius: 0;
+}
+
+h3 {
+    color: var(--tone2);
 }
 
 /* 48em = 768px */

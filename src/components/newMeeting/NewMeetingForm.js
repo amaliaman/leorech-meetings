@@ -5,7 +5,7 @@ class NewMeetingForm extends Component {
         return (
             <div>
                 <input type='text' />
-                <button type='button'>Send</button>
+                <button type='button'>שמור</button>
             </div>
         );
     }
