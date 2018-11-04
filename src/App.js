@@ -3,17 +3,18 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 
-import NavBar from './components/general/NavBar';
+// import NavBar from './components/general/NavBar';
 import Home from './components/main/Home';
 import NewMeeting from './components/newMeeting/NewMeeting';
+import ResponsiveNavBar from './components/nav/ResponsiveNavBar';
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <div>
-                    <NavBar />
-
+                    {/* <NavBar /> */}
+                    <ResponsiveNavBar />
                     <div className='main-container'>
                         {/* Home */}
                         <Route path="/" exact render={() => <Home />} />
