@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 // APIs
 const departmentApi = require('./server/api/departmentApi');
 const attendeeApi = require('./server/api/attendeeApi');
+const meetingApi = require('./server/api/meetingApi');
 
 // Body parser
 app.use(bodyParser.json());
@@ -33,6 +34,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Routes
 app.use('/departments', departmentApi);
 app.use('/attendees', attendeeApi);
+app.use('/meetings', meetingApi);
 
 // Production app
 /* if (process.env.NODE_ENV === 'production') {

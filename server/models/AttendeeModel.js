@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const connection = require('../dataAccess/Connection');
-const meetingModel = require('./MeetingModel');
 
 class AttendeeModel {
     constructor() {
@@ -10,13 +9,6 @@ class AttendeeModel {
                 notNull: true
             }
         });
-
-        this.setAssociations();
-    }
-
-    setAssociations() {
-        meetingModel.Meeting.belongsTo(this.Attendee);
-        this.Attendee.hasMany(meetingModel.Meeting);
     }
 
     // ========== CRUD methods ==========

@@ -2,13 +2,8 @@ import axios from 'axios';
 
 class AjaxUtils {
     constructor() {
-        this.EVENTS_PATH = '/events';
-        this.GREETING_PATH = '/greetings';
-        this.GREETING_TYPES_PATH = `${this.GREETING_PATH}/types`;
-        this.USERS_PATH = '/users';
-        this.CHAT_PATH = '/chat';
-        this.CHAT_ROOMS_PATH = `${this.CHAT_PATH}/rooms`;
-        this.CHAT_USERS_PATH = `${this.CHAT_PATH}/users`;
+        this.DEPARTMENTS_PATH = '/departments';
+        this.ATTENDEES_PATH = '/events';
     }
 
     // Return a promise

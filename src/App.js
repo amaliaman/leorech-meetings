@@ -5,6 +5,7 @@ import './App.css';
 
 import NavBar from './components/general/NavBar';
 import Home from './components/main/Home';
+import NewMeeting from './components/newMeeting/NewMeeting';
 
 class App extends Component {
     render() {
@@ -13,11 +14,14 @@ class App extends Component {
                 <div>
                     <NavBar />
 
-                    {/* Home */}
-                    <Route path="/" exact render={() => <Home />} />
+                    <div className='main-container'>
+                        {/* Home */}
+                        <Route path="/" exact render={() => <Home />} />
 
-                    {/* New meeting */}
-                    {/* <Route path="/new" exact render={() => <NewMeeting />} /> */}
+                        {/* New meeting */}
+                        <Route path="/new" exact render={() => <NewMeeting />} />
+                    </div>
+
                 </div>
             </Router>
         );
