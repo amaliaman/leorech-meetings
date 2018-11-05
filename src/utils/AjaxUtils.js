@@ -27,9 +27,6 @@ class AjaxUtils {
                     throw new Error(`Unexpected method: ${method}`);
             }
             return response.data;
-            if (false){
-                console.log(test)
-            }
         }
         catch (error) { throw error; }
     };
