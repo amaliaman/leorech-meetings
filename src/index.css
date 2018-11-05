@@ -8,13 +8,18 @@
     --tone3-light: #95cb5e;
     --tone4: #f4f0ee;
     --tone4-dark: #e9dfd9;
-    --shadow:#333333;
+    --shadow: #666666;
     --bg-light: var(--tone4);
     --bg-dark: var(--tone1);
-    --text-light: var(--tone4-dark);
+    --text-light: var(--tone3-light);
     /* fonts */
     --body-font: 'Assistant', sans-serif;
-    --text-shadow: 1px 1px 1px var(--shadow);
+    --text-shadow: 1px 1px 0 var(--shadow);
+    /* dimensions */
+    --page-top-margin: 4.5rem;
+    --main-margin: 0.8rem;
+    --input-margin: 0.5rem;
+    --title-text-height: 1.9rem;
 }
 
 html,

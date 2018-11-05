@@ -3,7 +3,7 @@
 }
 
 .page-container {
-    margin-top: 60px;
+    margin-top: var(--page-top-margin);
 }
 
 button {
@@ -14,10 +14,9 @@ button {
 button,
 input {
     border: 1px solid var(--tone4-dark);
-    padding: 10px;
+    padding: var(--input-margin);
     border-radius: 10px;
-    transition-property: border-radius;
-    transition-duration: 1s;
+    transition: border-radius 0.5s;
 }
 
 button:focus,

@@ -5,7 +5,7 @@ class NewMeeting extends Component {
     render() {
         return (
             <div className='main-container'>
-            <h3>הוספת פגישה</h3>
+            <div>הוספת פגישה</div>
                 <NewMeetingForm />
             </div>
         );

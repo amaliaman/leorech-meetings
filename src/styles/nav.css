@@ -1,11 +1,10 @@
-/* additions */
-
 .nav-container {
     width: 100%;
     display: flex;
     align-content: center;
     align-items: stretch;
     flex-wrap: wrap;
+    padding: var(--main-margin);
 }
 
 .logo-text {
@@ -13,17 +12,19 @@
 }
 
 .logo-text img {
-    margin-inline-end: 10px;
+    margin-inline-end: var(--main-margin);
+    height: var(--title-text-height);
+}
+
+.active-link {
+    font-weight: bold;
 }
 
 /* based on https://codepen.io/mutedblues/pen/MmPNPG */
 
-/* TODO: convert to flex */
-
 /* header */
 
 .header {
-    direction: rtl;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -34,7 +35,6 @@
     width: 100%;
     z-index: 3;
     top: 0;
-    padding: 0 10px;
 }
 
 .header ul {
@@ -49,6 +49,7 @@
     text-decoration: none;
     text-shadow: var(--text-shadow);
     color: white;
+    transition: color 0.5s;
     height: 100%;
     display: flex;
     align-content: center;
@@ -56,23 +57,17 @@
 }
 
 .header li a {
-    padding-bottom: 5px;
-}
-
-.header li a:hover,
-.header .menu-btn:hover,
-.logo-text:hover {
-    color: var(--text-light);
+    font-size: 1.2rem;
+    padding-top: var(--main-margin);
 }
 
 .header .logo {
     display: block;
     float: right;
-    font-size: 2em;
+    font-size: var(--title-text-height);
     text-decoration: none;
     text-shadow: var(--text-shadow);
     margin-left: auto;
-    padding: 10px 0;
 }
 
 /* menu */
@@ -91,7 +86,6 @@
     display: flex;
     align-content: center;
     align-items: center;
-    margin-left: 24px;
 }
 
 .header .menu-icon .navicon {
@@ -173,5 +167,10 @@
     }
     .header .menu {
         flex-basis: unset;
+    }
+    .header li a:hover,
+    .header .menu-btn:hover,
+    .logo-text:hover {
+        color: var(--text-light);
     }
 }
