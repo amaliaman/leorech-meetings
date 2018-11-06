@@ -1,0 +1,23 @@
+.new-container form {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+.new-container form>div {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.new-container label {
+    margin-right: var(--main-margin);
+    font-size: 0.9rem;
+}
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+    .new-container form {
+        grid-template-columns: 300px;
+    }
+}

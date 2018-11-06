@@ -4,8 +4,8 @@ import NewMeetingForm from './NewMeetingForm';
 class NewMeeting extends Component {
     render() {
         return (
-            <div className='main-container'>
-            <div>הוספת פגישה</div>
+            <div className='main'>
+                <h3>הוספת פגישה</h3>
                 <NewMeetingForm />
             </div>
         );

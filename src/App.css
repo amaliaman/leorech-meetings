@@ -6,26 +6,39 @@
     margin-top: var(--page-top-margin);
 }
 
+.main {
+    padding: var(--main-margin);
+}
+
 button {
     background-color: var(--tone3);
     color: white;
+    min-width: 5rem;
+}
+
+input::placeholder {
+    color: #bbbbbb;
 }
 
 button,
-input {
+input,
+select {
+    font-size: 1rem;
     border: 1px solid var(--tone4-dark);
     padding: var(--input-margin);
-    border-radius: 10px;
+    border-radius: var(--main-margin);
     transition: border-radius 0.5s;
 }
 
 button:focus,
-input:focus {
+input:focus,
+select:focus {
     outline: 2px solid var(--tone4-dark);
     border-radius: 0;
 }
 
 h3 {
+    margin-top: 0;
     color: var(--tone2);
 }
 
@@ -42,5 +55,8 @@ h3 {
     }
     .nav-container {
         width: 75%;
+    }
+    .main {
+        padding: var(--main-margin) 0 0 0;
     }
 }
