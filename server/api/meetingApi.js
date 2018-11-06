@@ -12,4 +12,14 @@ router.get('/', async (req, res) => {
     catch (err) { throw err; }
 });
 
+// Create a meeting
+router.post('/', async (req, res) => {
+    try {
+        const { patient, therapist, reportDate, departmentId, attendeeId } = req.body;
+        const newMeeting = await meetingModel.createMeeting(patient, therapist, reportDate, departmentId, attendeeId);
+        res.json(newMeeting);
+    }
+    catch (err) { throw err; }
+});
+
 module.exports = router;

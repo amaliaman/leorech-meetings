@@ -15,20 +15,20 @@ class MeetingModel {
                 type: Sequelize.STRING,
                 notNull: true
             },
-            timestamp: {
+            reportDate: {
                 type: Sequelize.DATE
             }
         });
 
         this.setAssociations();
-
     }
+
     setAssociations() {
         this.Meeting.belongsTo(attendeeModel.Attendee);
-        attendeeModel.Attendee.hasMany(this.Meeting);
+        // attendeeModel.Attendee.hasOne(this.Meeting);
 
         this.Meeting.belongsTo(departmentModel.Department);
-        departmentModel.Department.hasMany(this.Meeting);
+        // departmentModel.Department.hasOne(this.Meeting);
     }
 
     // ========== CRUD methods ==========
@@ -40,10 +40,19 @@ class MeetingModel {
                     { model: attendeeModel.Attendee, attributes: ['name'] },
                     { model: departmentModel.Department, attributes: ['name'] }
                 ],
-                attributes: ['id', 'patient', 'therapist', 'timestamp'],
                 // raw: true
             });
     };
+
+    async createMeeting(patient, therapist, reportDate, departmentId, attendeeId) {
+        try {
+            const newMeeting = await this.Meeting.create({ patient, therapist, reportDate });
+            await newMeeting.setDepartment(await departmentModel.Department.findByPk(departmentId));
+            await newMeeting.setAttendee(await attendeeModel.Attendee.findByPk(attendeeId));
+            return newMeeting;
+        }
+        catch (err) { throw err; }
+    }
 }
 
 const meetingModel = new MeetingModel();

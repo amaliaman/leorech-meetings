@@ -20,6 +20,9 @@ class App extends Component {
 
                         {/* New meeting */}
                         <Route path="/new" exact render={() => <NewMeeting />} />
+
+                        {/* Admin */}
+                        <Route path="/admin" exact render={() => <NewMeeting />} /> {/* admin//////////////////////////// */}
                     </div>
 
                 </div>

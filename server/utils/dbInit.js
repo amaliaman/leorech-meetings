@@ -48,7 +48,7 @@ const addAttendees = async () => {
     catch (error) { throw error; }
 };
 
-const addMeeting = async (patientName, therapistName, attendeeName, departmentName, timestamp) => {
+const addMeeting = async (patientName, therapistName, attendeeName, departmentName, reportDate) => {
     let attendee;
     let department;
 
@@ -75,9 +75,11 @@ const addMeeting = async (patientName, therapistName, attendeeName, departmentNa
     // Create meeting and attach attendee and department
     try {
         let meeting = await meetingModel.Meeting
-            .create({ patient: patientName, therapist: therapistName, timestamp: timestamp });
-        await attendee.addMeeting(meeting);
-        await department.addMeeting(meeting);
+            .create({ patient: patientName, therapist: therapistName, reportDate: reportDate });
+            await meeting.setAttendee(attendee)
+            await meeting.setDepartment(department)
+        // await attendee.addMeeting(meeting);
+        // await department.addMeeting(meeting);
     }
     catch (error) { throw error; }
 }

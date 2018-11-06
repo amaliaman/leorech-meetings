@@ -2,11 +2,11 @@ import axios from 'axios';
 
 class AjaxUtils {
     constructor() {
+        this.MEETINGS_PATH = '/meetings';
         this.DEPARTMENTS_PATH = '/departments';
-        this.ATTENDEES_PATH = '/events';
+        this.ATTENDEES_PATH = '/attendees';
     }
 
-    // Return a promise
     queryApi = async (method, url, body) => {
         let response;
         try {
