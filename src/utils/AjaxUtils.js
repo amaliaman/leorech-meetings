@@ -5,6 +5,7 @@ class AjaxUtils {
         this.MEETINGS_PATH = '/meetings';
         this.DEPARTMENTS_PATH = '/departments';
         this.ATTENDEES_PATH = '/attendees';
+        this.LATEST_PATH = '/latest';
     }
 
     queryApi = async (method, url, body) => {

@@ -6,5 +6,8 @@
     "patientName": "שם המטופל",
     "department": "אגף",
     "attendee": "עם מי",
-    "admin": "ניהול"
+    "admin": "ניהול",
+    "addMeetingTitle": "הוספת דיווח",
+    "latestMeetingsTitle": "דיווחים אחרונים",
+    "newButtonTitle": "דיווח חדש"
 }

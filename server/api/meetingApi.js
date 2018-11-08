@@ -3,10 +3,20 @@ const router = express.Router();
 
 const meetingModel = require('../models/MeetingModel');
 
-// Get all departments
-router.get('/', async (req, res) => {
+// Get all meetings
+// router.get('/', async (req, res) => {
+//     try {
+//         const meetings = await meetingModel.getMeetings();
+//         res.json(meetings);
+//     }
+//     catch (err) { throw err; }
+// });
+
+// Get latest meetings
+router.post('/latest', async (req, res) => {
     try {
-        const meetings = await meetingModel.getAllMeetings();
+        const { pageSize } = req.body;
+        const meetings = await meetingModel.getMeetings(pageSize);
         res.json(meetings);
     }
     catch (err) { throw err; }
