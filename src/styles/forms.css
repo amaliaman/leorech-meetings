@@ -1,0 +1,46 @@
+button {
+    background-color: var(--tone3);
+    color: white;
+    min-width: 5rem;
+}
+
+input::placeholder {
+    color: #bbbbbb;
+}
+
+button,
+input,
+select {
+    font-size: 1rem;
+    border: 1px solid var(--tone4-dark);
+    padding: var(--input-margin);
+    border-radius: var(--main-margin);
+    transition: border-radius 0.5s;
+}
+
+button:focus,
+input:focus,
+select:focus {
+    outline: 2px solid var(--tone4-dark);
+    border-radius: 0;
+}
+
+.button-indicator {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.button-indicator div {
+    display: inline-block;
+}
+
+.button-indicator svg {
+    fill: var(--tone3-light);
+    height: 0.5rem;
+}
+
+.action-message {
+    margin-right: 1rem;
+    color: var(--tone3-light);
+}

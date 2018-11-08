@@ -3,11 +3,14 @@ import { inject, observer } from 'mobx-react';
 import { observable, action } from 'mobx';
 
 import strings from '../../utils/Strings';
+import ActionIndicator from '../general/ActionIndicator';
 
 @inject(stores => ({
     departments: stores.rootStore.departmentStore.departments,
     attendees: stores.rootStore.attendeeStore.attendees,
     createMeeting: stores.rootStore.meetingStore.createMeeting,
+    isAction: stores.rootStore.meetingStore.isAction,
+    actionMessage: stores.rootStore.meetingStore.actionMessage,
 }))
 @observer
 class NewMeetingForm extends Component {
@@ -34,7 +37,7 @@ class NewMeetingForm extends Component {
             therapist: 'אלינה', // TODO: replace with current user ///////////////
             attendeeId: this.attendee,
             departmentId: this.department,
-            reportDate: new Date(), ////////////////// TODO: with timezone
+            reportDate: Date.now(),
         };
         await this.props.createMeeting(meeting);
         this.patient = '';
@@ -93,7 +96,7 @@ class NewMeetingForm extends Component {
                     <div className='button-indicator'>
                         <div>
                             <button type='submit'>{strings.submit}</button>
-                            {/* <ActionIndicator />///////////////////////////////////////////// */}
+                            <ActionIndicator isAction={this.props.isAction} actionMessage={this.props.actionMessage} />
                         </div>
                     </div>
                 </form>
