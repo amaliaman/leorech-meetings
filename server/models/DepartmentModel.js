@@ -13,9 +13,21 @@ class DepartmentModel {
 
     // ========== CRUD methods ==========
 
-    getAllDepartments() {
+    getDepartments() {
         return this.Department.findAll();
-    };
+    }
+
+    createDepartment(name) {
+        return this.Department.create({ name });
+    }
+
+    deleteDepartment(id) {
+        return this.Department.destroy({ where: { id } });
+    }
+
+    updateDepartment(id, name) {
+        return this.Department.update({ name }, { where: { id } });
+    }
 }
 
 const departmentModel = new DepartmentModel();

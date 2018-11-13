@@ -45,6 +45,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Error handling
+process.on('unhandledRejection', (reason, promise) => {
+	console.error(`${getTimestamp()} Unhandled Rejection:\n ${reason.stack || reason}`);
+});
 app.use(function (req, res) {
 	res.status(404).send('Page not found');
 });

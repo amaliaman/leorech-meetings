@@ -46,8 +46,7 @@ class MeetingModel {
                     { model: departmentModel.Department, attributes: ['name'] }
                 ],
                 limit: pageSize ? pageSize : null,
-                order: [['reportDate', 'DESC']],
-                // raw: true
+                order: [['reportDate', 'DESC']]
             });
     };
 
@@ -61,18 +60,15 @@ class MeetingModel {
      * @return {Object} The newly created meeting object
      */
     async createMeeting(patient, therapist, reportDate, departmentId, attendeeId) {
-        try {
-            const newMeeting = await this.Meeting.create({ patient, therapist, reportDate });
-            await newMeeting.setDepartment(await departmentModel.Department.findByPk(departmentId));
-            await newMeeting.setAttendee(await attendeeModel.Attendee.findByPk(attendeeId));
-            return this.Meeting.findByPk(newMeeting.id, {
-                include: [
-                    { model: attendeeModel.Attendee, attributes: ['name'] },
-                    { model: departmentModel.Department, attributes: ['name'] }
-                ]
-            });
-        }
-        catch (err) { throw err; }
+        const newMeeting = await this.Meeting.create({ patient, therapist, reportDate });
+        await newMeeting.setDepartment(await departmentModel.Department.findByPk(departmentId));
+        await newMeeting.setAttendee(await attendeeModel.Attendee.findByPk(attendeeId));
+        return this.Meeting.findByPk(newMeeting.id, {
+            include: [
+                { model: attendeeModel.Attendee, attributes: ['name'] },
+                { model: departmentModel.Department, attributes: ['name'] }
+            ]
+        });
     }
 }
 
