@@ -4,16 +4,10 @@ import CustomLoader from '../general/CustomLoader';
 
 import { tableHeaders, LOCALE } from '../../constants/strings';
 
-@inject(stores =>
-    // {
-    //     const store = stores.rootStore.meetingStore;
-    //     return { store: { meetings, isLoading } };
-    // })
-    ({
-        meetings: stores.rootStore.meetingStore.meetings,
-        isLoading: stores.rootStore.meetingStore.isLoading,
-    })
-)
+@inject(stores => {
+    const { meetings, isLoading } = stores.rootStore.meetingStore;
+    return { meetings, isLoading };
+})
 @observer
 class MeetingsTable extends Component {
     render() {

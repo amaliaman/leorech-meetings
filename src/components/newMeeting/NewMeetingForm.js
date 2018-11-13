@@ -5,13 +5,12 @@ import { observable, action } from 'mobx';
 import { validation, fields, buttons } from '../../constants/strings';
 import ActionIndicator from '../general/ActionIndicator';
 
-@inject(stores => ({
-    departments: stores.rootStore.departmentStore.departments,
-    attendees: stores.rootStore.attendeeStore.attendees,
-    createMeeting: stores.rootStore.meetingStore.createMeeting,
-    isAction: stores.rootStore.meetingStore.isAction,
-    actionMessage: stores.rootStore.meetingStore.actionMessage,
-}))
+@inject(stores => {
+    const { departments } = stores.rootStore.departmentStore;
+    const { attendees } = stores.rootStore.attendeeStore;
+    const { createMeeting, isAction, actionMessage } = stores.rootStore.meetingStore;
+    return { departments, attendees, createMeeting, isAction, actionMessage };
+})
 @observer
 class NewMeetingForm extends Component {
     @observable patient = '';
