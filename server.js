@@ -37,12 +37,12 @@ app.use('/attendees', attendeeApi);
 app.use('/meetings', meetingApi);
 
 // Production app
-/* if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, 'build')));
 	app.get('*', function (req, res) {
 		res.sendFile(path.join(__dirname, 'build', 'index.html'));
 	});
-} */
+}
 
 // Error handling
 app.use(function (req, res) {

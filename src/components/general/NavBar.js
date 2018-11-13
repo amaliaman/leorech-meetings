@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+
+import { links, APP_TITLE } from '../../constants/strings';
 import logo from '../../images/logo.svg';
 
 class NavBar extends Component {
     constructor() {
         super();
         this.state = { isChecked: false };
-        this.home = { title: 'דיווח פגישות', to: '/', logoImg: logo };
+        this.home = { title: APP_TITLE, to: '/', logoImg: logo };
         this.links = [
-            { title: 'חדש', to: '/new' },
-            { title: 'התנתק', to: '/logout' }
+            { title: links.NEW, to: '/new' },
+            { title: links.ADMIN, to: '/admin' },
+            { title: 'התנתק', to: '/logout' },//TODO: dynamic login/logout/////////////////////
         ];
     }
 

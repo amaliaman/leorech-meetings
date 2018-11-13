@@ -10,31 +10,9 @@
     padding: var(--main-margin);
 }
 
-button {
-    background-color: var(--tone3);
-    color: white;
-    min-width: 5rem;
-}
-
-input::placeholder {
-    color: #bbbbbb;
-}
-
-button,
-input,
-select {
-    font-size: 1rem;
-    border: 1px solid var(--tone4-dark);
-    padding: var(--input-margin);
-    border-radius: var(--main-margin);
-    transition: border-radius 0.5s;
-}
-
-button:focus,
-input:focus,
-select:focus {
-    outline: 2px solid var(--tone4-dark);
-    border-radius: 0;
+section {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 h3 {
