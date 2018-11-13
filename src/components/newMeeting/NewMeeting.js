@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 import NewMeetingForm from './NewMeetingForm';
-import strings from '../../utils/Strings';
+import { titles } from '../../constants/strings';
 
 class NewMeeting extends Component {
     render() {
         return (
             <div className='main'>
-                <h3>{strings.addMeetingTitle}</h3>
+                <h3>{titles.ADD_MEETING}</h3>
                 <NewMeetingForm />
             </div>
         );

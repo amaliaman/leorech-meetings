@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { observable, action } from 'mobx';
 
-import strings from '../../utils/Strings';
+import { validation, fields, buttons } from '../../constants/strings';
 import ActionIndicator from '../general/ActionIndicator';
 
 @inject(stores => ({
@@ -23,7 +23,7 @@ class NewMeetingForm extends Component {
     };
 
     handleRequired = e => {
-        e.target.setCustomValidity(strings.required);
+        e.target.setCustomValidity(validation.REQUIRED);
     };
 
     handleResetRequired = e => {
@@ -50,11 +50,11 @@ class NewMeetingForm extends Component {
             <div className='new-container'>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label htmlFor='patientName'>{strings.patientName}</label>
+                        <label htmlFor='patientName'>{fields.PATIENT_NAME}</label>
                         <input
                             name='patient'
                             type='text'
-                            placeholder={strings.patientName}
+                            placeholder={fields.PATIENT_NAME}
                             value={this.patient}
                             onChange={this.handleChange}
                             onInvalid={this.handleRequired}
@@ -64,7 +64,7 @@ class NewMeetingForm extends Component {
                     </div>
 
                     <div>
-                        <label htmlFor='department'>{strings.department}</label>
+                        <label htmlFor='department'>{fields.DEPARTMENT}</label>
                         <select
                             name='department'
                             onChange={this.handleChange}
@@ -73,13 +73,13 @@ class NewMeetingForm extends Component {
                             onInput={this.handleResetRequired}
                             required
                         >
-                            <option value='' disabled>{strings.department}</option>
+                            <option value='' disabled>{fields.DEPARTMENT}</option>
                             {this.props.departments.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
                         </select>
                     </div>
 
                     <div>
-                        <label htmlFor='attendee'>{strings.attendee}</label>
+                        <label htmlFor='attendee'>{fields.ATTENDEE}</label>
                         <select
                             name='attendee'
                             onChange={this.handleChange}
@@ -88,14 +88,14 @@ class NewMeetingForm extends Component {
                             onInput={this.handleResetRequired}
                             required
                         >
-                            <option value='' disabled>{strings.attendee}</option>
+                            <option value='' disabled>{fields.ATTENDEE}</option>
                             {this.props.attendees.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
                         </select>
                     </div>
 
                     <div className='button-indicator'>
                         <div>
-                            <button type='submit'>{strings.submit}</button>
+                            <button type='submit'>{buttons.SUBMIT}</button>
                             <ActionIndicator isAction={this.props.isAction} actionMessage={this.props.actionMessage} />
                         </div>
                     </div>
