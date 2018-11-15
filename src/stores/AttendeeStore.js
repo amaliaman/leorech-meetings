@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable, action, computed } from 'mobx';
 import attendeeTransportLayer from '../transportLayer/AttendeeTransportLayer';
 
 class AttendeeStore {
@@ -9,6 +9,10 @@ class AttendeeStore {
         this.loadAttendees();
     }
     
+    @computed get items() {
+        return this.attendees;
+    }
+
     /**
      * Fetches all attendees from the server
      */

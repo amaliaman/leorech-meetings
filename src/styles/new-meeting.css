@@ -14,6 +14,10 @@
     font-size: 0.9rem;
 }
 
+.new-container.modal {
+    margin-top: 28px;
+}
+
 /* 48em = 768px */
 
 @media (min-width: 48em) {

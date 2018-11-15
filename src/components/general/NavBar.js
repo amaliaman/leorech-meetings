@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { links, APP_TITLE } from '../../constants/strings';
+import { links, routes, APP_TITLE } from '../../constants/strings';
 import logo from '../../images/logo.svg';
 
 class NavBar extends Component {
     constructor() {
         super();
         this.state = { isChecked: false };
-        this.home = { title: APP_TITLE, to: '/', logoImg: logo };
+        this.home = { title: APP_TITLE, to: routes.HOME, logoImg: logo };
         this.links = [
-            { title: links.NEW, to: '/new' },
-            { title: links.ADMIN, to: '/admin' },
+            { title: links.NEW, to: routes.NEW },
+            { title: links.ADMIN, to: routes.ADMIN },
             { title: 'התנתק', to: '/logout' },//TODO: dynamic login/logout/////////////////////
         ];
     }

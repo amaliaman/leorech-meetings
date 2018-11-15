@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
 import Loader from 'react-loader-spinner';
 
-@observer
 class ActionIndicator extends Component {
     render() {
         return (

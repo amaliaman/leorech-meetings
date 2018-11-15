@@ -1,4 +1,6 @@
 import { observable, action } from 'mobx';
+
+import { actionResults } from '../constants/strings';
 import meetingTransportLayer from '../transportLayer/MeetingTransportLayer';
 
 class MeetingStore {
@@ -54,7 +56,7 @@ class MeetingStore {
                 this.meetings.splice(this.meetings.length - 1, 1);
             }
             this.isAction = false;
-            this.actionMessage = newMeeting.id ? '✔' : '✘';
+            this.actionMessage = newMeeting.id ? actionResults.OK : actionResults.FAIL;
         }
         catch (error) {
             throw error;

@@ -20,6 +20,16 @@ h3 {
     color: var(--tone2);
 }
 
+h4 {
+    margin-top: 0;
+    color: var(--tone2-light);
+}
+
+.error {
+    color: var(--tone3);
+    font-weight: bold;
+}
+
 /* 48em = 768px */
 
 @media (min-width: 48em) {

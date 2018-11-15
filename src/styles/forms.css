@@ -18,6 +18,12 @@ select {
     transition: border-radius 0.5s;
 }
 
+button.invert {
+    background-color: var(--tone4-dark);
+    color: black;
+    border: 1px solid var(--tone3);
+}
+
 button:focus,
 input:focus,
 select:focus {
