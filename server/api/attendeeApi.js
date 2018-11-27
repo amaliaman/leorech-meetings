@@ -32,12 +32,7 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
     const { name } = req.body;
-    const affectedRows = await attendeeModel.updateAttendee(id, name);
-    if (affectedRows[0] === 1) {
-        res.status(204).send();
-    }
-    else {
-        throw Error('Error updating attendee');
-    }
+    const updatedAttendee = await attendeeModel.updateAttendee(id, name);
+    res.json(updatedAttendee)
 });
 module.exports = router;

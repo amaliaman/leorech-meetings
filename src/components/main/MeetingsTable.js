@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import CustomLoader from '../general/CustomLoader';
 
-import { tableHeaders, LOCALE } from '../../constants/strings';
+import { tableHeaders } from '../../constants/strings';
+import stringUtils from '../../utils/StringUtils';
 
 @inject(stores => {
     const { meetings, isLoading } = stores.rootStore.meetingStore;
@@ -31,7 +32,7 @@ class MeetingsTable extends Component {
                             <span className='mobile-only'>{tableHeaders.ATTENDEE}</span>
                             <span>{m.attendee.name}</span>
                             <span className='mobile-only'>{tableHeaders.REPORT_DATE}</span>
-                            <span>{(new Date(m.reportDate)).toLocaleString(LOCALE)}</span>
+                            <span>{stringUtils.getDateString(new Date(m.reportDate))}</span>
                         </div>
                     ))}
                 </div>

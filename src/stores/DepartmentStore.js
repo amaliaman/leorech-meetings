@@ -87,6 +87,23 @@ class DepartmentStore {
             this.isAction = false;
         };
     }
+
+    @action updateItem = async (id, name) => {
+        try {
+            // this.actionMessage = '';
+            this.isAction = true;
+            const updatedDepartment = await departmentTransportLayer.updateDepartment(id, name);
+            this.departments = this.departments.map(d => d.id === id ? updatedDepartment : d);
+            // this.actionMessage = actionResults.OK;
+        }
+        catch (error) {
+            // this.actionMessage = actionResults.FAIL;
+            throw error;
+        }
+        finally {
+            this.isAction = false;
+        };
+    }
 }
 
 export default DepartmentStore;

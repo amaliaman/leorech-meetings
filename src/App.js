@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import { routes } from './constants/strings';
 import NavBar from './components/general/NavBar';
-import Home from './components/main/Home';
-import NewMeeting from './components/newMeeting/NewMeeting';
+import Home from './pages/Home';
 import Admin from './pages/Admin';
+import NewMeeting from './components/newMeeting/NewMeeting';
 import ErrorMessage from './components/general/ErrorMessage';
 
 class App extends Component {

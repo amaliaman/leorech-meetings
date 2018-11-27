@@ -14,7 +14,7 @@ class AttendeeModel {
     // ========== CRUD methods ==========
 
     getAllAttendees() {
-        return this.Attendee.findAll();
+        return this.Attendee.findAll({ order: ['createdAt'] });
     };
 
     createAttendee(name) {
@@ -25,8 +25,9 @@ class AttendeeModel {
         return this.Attendee.destroy({ where: { id } });
     }
 
-    updateAttendee(id, name) {
-        return this.Attendee.update({ name }, { where: { id } });
+    async updateAttendee(id, name) {
+        const attendee = await this.Attendee.findByPk(id);
+        return attendee.update({ name });
     }
 }
 

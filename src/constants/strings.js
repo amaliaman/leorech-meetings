@@ -52,4 +52,14 @@ export const actionResults = {
 
 export const errors = {
     DEPARTMENT_LOAD: '⚠️ בעיה בטעינת אגפים',
-}
+};
+
+export const formModes = {
+    ADD: 'ADD',
+    EDIT: 'EDIT',
+    DELETE: 'DELETE',
+};
+
+export const messages = {
+    DELETE_CONFIRMATION: 'האם למחוק את {{name}}?',
+};

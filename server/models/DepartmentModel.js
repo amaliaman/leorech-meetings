@@ -14,7 +14,7 @@ class DepartmentModel {
     // ========== CRUD methods ==========
 
     getDepartments() {
-        return this.Department.findAll();
+        return this.Department.findAll({ order: ['createdAt'] });
     }
 
     createDepartment(name) {
@@ -25,8 +25,9 @@ class DepartmentModel {
         return this.Department.destroy({ where: { id } });
     }
 
-    updateDepartment(id, name) {
-        return this.Department.update({ name }, { where: { id } });
+    async updateDepartment(id, name) {
+        const department = await this.Department.findByPk(id);
+        return department.update({ name });
     }
 }
 
