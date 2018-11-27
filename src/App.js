@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Container } from 'reactstrap';
 
 import './App.css';
 import { routes } from './constants/strings';
@@ -13,14 +14,14 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <div className='outer-wrapper'>
+                <div>
                     <NavBar />
-                    <div className='page-container'>
+                    <Container>
                         <ErrorMessage />
                         <Route path={routes.HOME} exact component={Home} />
                         <Route path={routes.NEW} exact component={NewMeeting} />
                         <Route path={routes.ADMIN} exact component={Admin} />
-                    </div>
+                    </Container>
                 </div>
             </Router>
         );

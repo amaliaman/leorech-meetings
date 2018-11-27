@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { observable, action } from 'mobx';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-import { validation, fields, buttons } from '../../constants/strings';
+import { validation, fields, buttons, bsColors } from '../../constants/strings';
 import ActionIndicator from '../general/ActionIndicator';
 
 @inject(stores => {
@@ -46,13 +47,12 @@ class NewMeetingForm extends Component {
 
     render() {
         return (
-            <div className='new-container'>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label htmlFor='patientName'>{fields.PATIENT_NAME}</label>
-                        <input
-                            name='patient'
+                <Form onSubmit={this.handleSubmit}>
+                    <FormGroup>
+                        <Label>{fields.PATIENT_NAME}</Label>
+                        <Input
                             type='text'
+                            name='patient'
                             placeholder={fields.PATIENT_NAME}
                             value={this.patient}
                             onChange={this.handleChange}
@@ -60,11 +60,12 @@ class NewMeetingForm extends Component {
                             onInput={this.handleResetRequired}
                             required
                         />
-                    </div>
+                    </FormGroup>
 
-                    <div>
-                        <label htmlFor='department'>{fields.DEPARTMENT}</label>
-                        <select
+                    <FormGroup>
+                        <Label>{fields.DEPARTMENT}</Label>
+                        <Input
+                            type="select"
                             name='department'
                             onChange={this.handleChange}
                             value={this.department}
@@ -74,12 +75,13 @@ class NewMeetingForm extends Component {
                         >
                             <option value='' disabled>{fields.DEPARTMENT}</option>
                             {this.props.departments.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
-                        </select>
-                    </div>
+                        </Input>
+                    </FormGroup>
 
-                    <div>
-                        <label htmlFor='attendee'>{fields.ATTENDEE}</label>
-                        <select
+                    <FormGroup>
+                        <Label>{fields.ATTENDEE}</Label>
+                        <Input
+                            type="select"
                             name='attendee'
                             onChange={this.handleChange}
                             value={this.attendee}
@@ -89,17 +91,14 @@ class NewMeetingForm extends Component {
                         >
                             <option value='' disabled>{fields.ATTENDEE}</option>
                             {this.props.attendees.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
-                        </select>
-                    </div>
+                        </Input>
+                    </FormGroup>
 
                     <div className='button-indicator'>
-                        <div>
-                            <button type='submit'>{buttons.SUBMIT}</button>
-                            <ActionIndicator isAction={this.props.isAction} actionMessage={this.props.actionMessage} />
-                        </div>
+                        <Button color={bsColors.INFO} type='submit'>{buttons.SUBMIT}</Button>
+                        <ActionIndicator isAction={this.props.isAction} actionMessage={this.props.actionMessage} />
                     </div>
-                </form>
-            </div >
+                </Form>
         );
     }
 }

@@ -12,7 +12,7 @@ import EditableList from '../components/admin/EditableList';
 class AdminContainer extends Component {
     render() {
         return (
-            <div className='main'>
+            <div>
                 <h3>{titles.ADMIN_LISTS}</h3>
                 <div className='admin-lists'>
                     <div className='admin-list'>

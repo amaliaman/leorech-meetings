@@ -18,17 +18,15 @@
     /* dimensions */
     --page-top-margin: 4.5rem;
     --main-margin: 0.8rem;
-    --input-margin: 0.4rem;
+    --input-margin: 0.5rem;
     --title-text-height: 1.9rem;
 }
 
 html,
 body {
-    padding: 0;
-    margin: 0;
     direction: rtl;
-    background-color: var(--bg-light);
     font-family: var(--body-font);
+    text-align: start;
 }
 
 @font-face {
@@ -42,9 +40,9 @@ body {
     font-weight: bold;
 }
 
-@import './styles/nav.css';
-@import './styles/new-meeting.css';
-@import './styles/forms.css';
+/* @import './styles/nav.css'; */
+/* @import './styles/new-meeting.css'; */
 @import './styles/meetings-table.css';
 @import './styles/loader.css';
-@import './styles/admin.css';
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+/* @import './styles/forms.css'; */

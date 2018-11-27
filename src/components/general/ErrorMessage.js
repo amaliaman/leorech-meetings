@@ -9,6 +9,7 @@ import { inject, observer } from 'mobx-react';
 class ErrorMessage extends Component {
     render() {
         return (
+            this.props.lastError &&
             <div className='main'>
                 {this.props.lastError}
             </div>

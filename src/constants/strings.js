@@ -1,5 +1,6 @@
 export const APP_TITLE = 'דיווח פגישות';
 export const LOCALE = 'he-IL';
+export const BS_BREAKPOINT = 'md';
 
 export const routes = {
     HOME: '/',
@@ -62,4 +63,13 @@ export const formModes = {
 
 export const messages = {
     DELETE_CONFIRMATION: 'האם למחוק את {{name}}?',
+};
+
+export const bsColors = {
+    PRIMARY: 'primary',
+    SECONDARY: 'secondary',
+    SUCCESS: 'success',
+    INFO: 'info',
+    WARNING: 'warning',
+    DANGER: 'danger',
 };
