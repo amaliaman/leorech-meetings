@@ -11,8 +11,7 @@
 
 .table-header,
 .table-row {
-    padding-bottom: 0.3rem;
-    margin-bottom: 0.3rem;
+    padding: 0.3rem 0;
 }
 
 .table-row .mobile-only {
