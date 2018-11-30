@@ -24,11 +24,15 @@ class NavBar extends Component {
         });
     }
 
+    toggleClose = () => {
+        this.state.isOpen && this.toggle();
+    };
+
     render() {
         return (
             <Navbar dark color={bsColors.INFO} expand={BS_BREAKPOINT}>
                 <Container>
-                    <NavLink className='logo navbar-brand' onClick={this.state.isOpen && this.toggle} exact to={this.home.to}>
+                    <NavLink className='logo navbar-brand' onClick={this.toggleClose} exact to={this.home.to}>
                         <img src={this.home.logoImg} alt='logo' />
                         <span>{this.home.title}</span>
                     </NavLink>
@@ -39,7 +43,7 @@ class NavBar extends Component {
                         <Nav navbar>
                             {this.links.map((l, i) => (
                                 <NavItem key={i}>
-                                    <NavLink className='nav-link' to={l.to} activeClassName='active' onClick={this.state.isOpen && this.toggle} exact>{l.title}</NavLink>
+                                    <NavLink className='nav-link' to={l.to} activeClassName='active' onClick={this.toggleClose} exact>{l.title}</NavLink>
                                 </NavItem>
                             ))}
                         </Nav>
