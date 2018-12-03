@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Container, Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
+import { Container, Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink as BsNavLink } from 'reactstrap';
 
 import { links, routes, APP_TITLE, bsColors, BS_BREAKPOINT } from '../../constants/strings';
 import logo from '../../images/logo.svg';
+import { inject, observer } from 'mobx-react';
 
+@inject(stores => ({
+    toggleAddModal: stores.rootStore.meetingStore.toggleAddModal
+}))
+@observer
 class NavBar extends Component {
     constructor() {
         super();
@@ -12,7 +17,6 @@ class NavBar extends Component {
 
         this.home = { title: APP_TITLE, to: routes.HOME, logoImg: logo };
         this.links = [
-            { title: links.NEW, to: routes.NEW },
             { title: links.ADMIN, to: routes.ADMIN },
             { title: 'התנתק', to: '/logout' },//TODO: dynamic login/logout/////////////////////
         ];
@@ -28,6 +32,11 @@ class NavBar extends Component {
         this.state.isOpen && this.toggle();
     };
 
+    toggleModal = () => {
+        this.props.toggleAddModal();
+        this.toggleClose();
+    };
+
     render() {
         return (
             <Navbar dark color={bsColors.INFO} expand={BS_BREAKPOINT}>
@@ -40,7 +49,11 @@ class NavBar extends Component {
                     <NavbarToggler onClick={this.toggle} />
 
                     <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav navbar>
+                        <Nav navbar className="ml-auto">
+                            <NavItem>
+                                <BsNavLink href='#' role='button' onClick={this.toggleModal}>{links.NEW}</BsNavLink>
+                            </NavItem>
+
                             {this.links.map((l, i) => (
                                 <NavItem key={i}>
                                     <NavLink className='nav-link' to={l.to} activeClassName='active' onClick={this.toggleClose} exact>{l.title}</NavLink>

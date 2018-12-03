@@ -21,6 +21,8 @@ class MeetingStore {
     /** Text indicating the result of the form's action */
     @observable actionMessage = '';
 
+    @observable isAddModalOpen = false;
+
     /**
      * Create a meeting state store
      * @constructor
@@ -62,6 +64,10 @@ class MeetingStore {
             throw error;
             // TODO: show global error message /////////////////////////////
         }
+    };
+
+    @action toggleAddModal = () => {
+        this.isAddModalOpen = !this.isAddModalOpen;
     };
 }
 

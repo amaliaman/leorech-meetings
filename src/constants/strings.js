@@ -4,7 +4,6 @@ export const BS_BREAKPOINT = 'md';
 
 export const routes = {
     HOME: '/',
-    NEW: '/new',
     ADMIN: '/admin',
 };
 
