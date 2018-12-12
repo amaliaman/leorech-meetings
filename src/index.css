@@ -21,6 +21,14 @@
     --title-text-height: 1.9rem;
 }
 
+.logo img {
+    height: 2rem;
+}
+
+.modal-body form button {
+    margin-inline-end: 0.5rem;
+}
+
 @import './styles/bootstrap-rtl.min.css';
 /* @import './styles/new-meeting.css'; */
 
