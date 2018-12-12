@@ -46,12 +46,12 @@ export const tableHeaders = {
 };
 
 export const actionResults = {
-    OK: '✔',
-    FAIL: '✘',
+    OK: 'הפעולה הסתיימה בהצלחה',
+    FAIL: 'הפעולה נכשלה, אנא נסה שוב',
 };
 
 export const errors = {
-    DEPARTMENT_LOAD: '⚠️ בעיה בטעינת אגפים',
+    DEPARTMENT_LOAD: 'בעיה בטעינת אגפים',
 };
 
 export const formModes = {

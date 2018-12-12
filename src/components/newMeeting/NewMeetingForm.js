@@ -4,14 +4,13 @@ import { observable, action } from 'mobx';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { validation, fields } from '../../constants/strings';
-// import ActionIndicator from '../general/ActionIndicator';
 import FormFooter from '../general/FormFooter';
 
 @inject(stores => {
     const { departments } = stores.rootStore.departmentStore;
     const { attendees } = stores.rootStore.attendeeStore;
-    const { createMeeting, isAction, actionMessage, toggleAddModal } = stores.rootStore.meetingStore;
-    return { departments, attendees, createMeeting, isAction, actionMessage, toggleAddModal };
+    const { createMeeting, isAction, toggleAddModal } = stores.rootStore.meetingStore;
+    return { departments, attendees, createMeeting, isAction, toggleAddModal };
 })
 @observer
 class NewMeetingForm extends Component {
@@ -40,13 +39,11 @@ class NewMeetingForm extends Component {
             departmentId: this.department,
             reportDate: Date.now(),
         };
-        const newId = await this.props.createMeeting(meeting);
-        if (newId) {
-            this.props.toggleAddModal();
-            this.patient = '';
-            this.department = '';
-            this.attendee = '';
-        }
+        await this.props.createMeeting(meeting);
+        this.props.toggleAddModal();
+        this.patient = '';
+        this.department = '';
+        this.attendee = '';
     };
 
     render() {
@@ -98,7 +95,7 @@ class NewMeetingForm extends Component {
                     </Input>
                 </FormGroup>
 
-                <FormFooter cancel={this.props.toggleAddModal} isAction={this.props.isAction} actionMessage={this.props.actionMessage} />
+                <FormFooter cancel={this.props.toggleAddModal} isAction={this.props.isAction} />
             </Form>
         );
     }

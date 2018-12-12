@@ -4,6 +4,7 @@ import { action, observable } from 'mobx';
 import DepartmentStore from './DepartmentStore';
 import AttendeeStore from './AttendeeStore';
 import MeetingStore from './MeetingStore';
+import UiState from './UiState';
 
 class RootStore {
     @observable lastError = null;
@@ -13,6 +14,7 @@ class RootStore {
         this.departmentStore = new DepartmentStore(this);
         this.attendeeStore = new AttendeeStore(this);
         this.meetingStore = new MeetingStore(this);
+        this.uiState = new UiState(this);
     }
 
     @action handleAjaxErrors = () => {

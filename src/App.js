@@ -9,31 +9,38 @@ import { routes, titles } from './constants/strings';
 import Home from './pages/Home';
 import Admin from './pages/Admin';
 import NavBar from './components/general/NavBar';
-import ErrorMessage from './components/general/ErrorMessage';
 import ModalWrapper from './components/general/ModalWrapper';
 import NewMeetingForm from './components/newMeeting/NewMeetingForm';
+import AlertWrapper from './components/general/AlertWrapper';
 
-@inject(stores => ({ meetingStore: stores.rootStore.meetingStore }))
+@inject(stores => {
+    const { isAddModalOpen, toggleAddModal } = stores.rootStore.meetingStore;
+    const { isAlertVisible, onAlertDismiss, alertColor, alertText } = stores.rootStore.uiState;
+    return { isAddModalOpen, toggleAddModal, isAlertVisible, onAlertDismiss, alertColor, alertText };
+})
 @observer
 class App extends Component {
     render() {
-        const { isAddModalOpen, toggleAddModal } = this.props.meetingStore;
-
         return (
             <Router>
                 <div>
                     <NavBar />
 
                     <Container>
-                        <ErrorMessage />
+                        <AlertWrapper
+                            color={this.props.alertColor}
+                            visible={this.props.isAlertVisible}
+                            onDismiss={this.props.onAlertDismiss}
+                            alertText={this.props.alertText} />
+                            
                         <Route path={routes.HOME} exact component={Home} />
                         <Route path={routes.ADMIN} exact component={Admin} />
                     </Container>
 
                     <ModalWrapper
                         title={titles.ADD_MEETING}
-                        isOpen={isAddModalOpen}
-                        toggle={toggleAddModal}
+                        isOpen={this.props.isAddModalOpen}
+                        toggle={this.props.toggleAddModal}
                     >
                         <NewMeetingForm />
                     </ModalWrapper>

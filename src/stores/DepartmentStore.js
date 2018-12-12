@@ -1,6 +1,6 @@
 import { observable, action, computed } from 'mobx';
 
-import { actionResults, errors } from '../constants/strings';
+import { actionResults, bsColors, errors } from '../constants/strings';
 import departmentTransportLayer from '../transportLayer/DepartmentTransportLayer';
 
 class DepartmentStore {
@@ -33,7 +33,7 @@ class DepartmentStore {
         this.loadDepartments();
     }
 
-    @action handleLocalError = (error, message) => {
+    @action handleLocalError = (error, message) => { // what is this?????
         this.localError = message;
         throw error;
     };
@@ -56,14 +56,12 @@ class DepartmentStore {
 
     @action createItem = async name => {
         try {
-            this.actionMessage = '';
             this.isAction = true;
             const newDepartment = await departmentTransportLayer.createDepartment(name);
             this.departments.push(newDepartment);
-            this.actionMessage = actionResults.OK;
+            this.rootStore.uiState.showAlert(actionResults.OK, bsColors.SUCCESS);
         }
         catch (error) {
-            this.actionMessage = actionResults.FAIL;
             throw error;
         }
         finally {

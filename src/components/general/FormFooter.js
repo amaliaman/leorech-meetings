@@ -11,7 +11,7 @@ class FormFooter extends Component {
             <div className='button-row'>
                 <Button color={bsColors.INFO} type='submit'>{buttons.SUBMIT}</Button>
                 {!this.props.isAction && <Button color={bsColors.SECONDARY} outline onClick={this.props.cancel}>{buttons.CANCEL}</Button>}
-                <ActionIndicator isAction={this.props.isAction} actionMessage={this.props.actionMessage} />
+                <ActionIndicator isAction={this.props.isAction} />
             </div>
         );
     }

@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 
-import { actionResults } from '../constants/strings';
+import { actionResults, bsColors } from '../constants/strings';
 import meetingTransportLayer from '../transportLayer/MeetingTransportLayer';
 
 class MeetingStore {
@@ -27,8 +27,8 @@ class MeetingStore {
      * Create a meeting state store
      * @constructor
      */
-    constructor(/* rootStore */) {
-        // this.rootStore = rootStore;
+    constructor(rootStore) {
+        this.rootStore = rootStore;
         this.getLatestMeetings(this.PAGE_SIZE);
     }
 
@@ -49,18 +49,17 @@ class MeetingStore {
      */
     @action createMeeting = async meeting => {
         try {
-            this.actionMessage = '';
             this.isAction = true;
             const newMeeting = await meetingTransportLayer.createMeeting(meeting);
-            this.isAction = false;
             if (newMeeting.id) {
                 this.meetings.unshift(newMeeting);
                 this.meetings.splice(this.meetings.length - 1, 1);
-                this.actionMessage = actionResults.OK;
-                return newMeeting.id
+                this.rootStore.uiState.showAlert(actionResults.OK, bsColors.SUCCESS);
             }
-            this.actionMessage = actionResults.FAIL;
-            return null;
+            else {
+                this.rootStore.uiState.showAlert(actionResults.FAIL, bsColors.DANGER);
+            }
+            this.isAction = false;
         }
         catch (error) {
             throw error;
@@ -70,7 +69,6 @@ class MeetingStore {
 
     @action toggleAddModal = () => {
         this.isAddModalOpen = !this.isAddModalOpen;
-        this.actionMessage = '';
     };
 }
 
