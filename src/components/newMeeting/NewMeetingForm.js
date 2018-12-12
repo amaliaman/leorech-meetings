@@ -40,11 +40,13 @@ class NewMeetingForm extends Component {
             departmentId: this.department,
             reportDate: Date.now(),
         };
-        await this.props.createMeeting(meeting);
-        this.props.toggleAddModal();//only if OK
-        this.patient = '';//only if OK
-        this.department = '';//only if OK
-        this.attendee = '';//only if OK
+        const newId = await this.props.createMeeting(meeting);
+        if (newId) {
+            this.props.toggleAddModal();
+            this.patient = '';
+            this.department = '';
+            this.attendee = '';
+        }
     };
 
     render() {

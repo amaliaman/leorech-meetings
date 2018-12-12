@@ -25,8 +25,23 @@
     height: 2rem;
 }
 
-.modal-body form button {
+/* forms */
+.button-row button:not(:last-child) {
     margin-inline-end: 0.5rem;
+}
+
+.action-indicator {
+    display: inline-block;
+}
+
+.action-indicator svg {
+    fill: var(--tone3-light);
+    height: 0.5rem;
+}
+
+.action-message {
+    margin-right: 1rem;
+    color: var(--tone3-light);
 }
 
 @import './styles/bootstrap-rtl.min.css';

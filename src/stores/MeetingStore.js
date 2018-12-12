@@ -45,7 +45,6 @@ class MeetingStore {
     };
 
     /** 
-     * Create a new meeting on the server /////////////////// TODO: in store too
      * @param {object} meeting - The meeting object
      */
     @action createMeeting = async meeting => {
@@ -53,12 +52,15 @@ class MeetingStore {
             this.actionMessage = '';
             this.isAction = true;
             const newMeeting = await meetingTransportLayer.createMeeting(meeting);
+            this.isAction = false;
             if (newMeeting.id) {
                 this.meetings.unshift(newMeeting);
                 this.meetings.splice(this.meetings.length - 1, 1);
+                this.actionMessage = actionResults.OK;
+                return newMeeting.id
             }
-            this.isAction = false;
-            this.actionMessage = newMeeting.id ? actionResults.OK : actionResults.FAIL;
+            this.actionMessage = actionResults.FAIL;
+            return null;
         }
         catch (error) {
             throw error;
@@ -68,6 +70,7 @@ class MeetingStore {
 
     @action toggleAddModal = () => {
         this.isAddModalOpen = !this.isAddModalOpen;
+        this.actionMessage = '';
     };
 }
 
