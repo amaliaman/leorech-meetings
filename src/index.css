@@ -40,15 +40,10 @@
     height: 0.5rem;
 }
 
-.action-message {
-    /* margin-inline-start: 1rem; */
-    color: var(--tone3-light);
-}
-
 /* alert */
-.main-alert {
+/* .main-alert {
     margin-block-start: 1rem;
-}
+} */
 
 /* loader */
 .loader-container svg {

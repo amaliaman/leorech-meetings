@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import {
-    Table, ListGroup, ListGroupItem, Card, Button, CardImg, CardTitle, CardText, CardColumns, CardHeader,
-    CardSubtitle, CardBody
-} from 'reactstrap';
+import { Table, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
 
 import CustomLoader from '../general/CustomLoader';
 import { MobileView, DefaultView } from '../general/ResponsiveWrappers';
@@ -45,26 +42,21 @@ class MeetingsTable extends Component {
                 </DefaultView>
 
                 <MobileView>
-                    <CardColumns>
+                    <ListGroup flush>
                         {this.props.meetings.map(m => (
-                            <Card key={m.id} outline color={bsColors.INFO}>
-                                <CardHeader>
-                                    {stringUtils.getDateString(new Date(m.reportDate))}, {m.therapist}
-                                </CardHeader>
-                                <CardBody>
-                                    {/* <CardTitle>{m.patient}</CardTitle>
-                                    <CardSubtitle>{m.therapist}</CardSubtitle> */}
-                                    <CardText>
-                                        <span className={textColor}>{tableHeaders.THERAPIST}</span>: <span>{m.therapist}</span>,
-                                        <span className={textColor}>{tableHeaders.PATIENT}</span>: <span>{m.patient}</span>
-                                        <br />
-                                        <span className={textColor}>{tableHeaders.DEPARTMENT}</span>: <span>{m.department.name}</span>,
-                                        <span className={textColor}>{tableHeaders.ATTENDEE}</span>: <span>{m.attendee.name}</span>
-                                    </CardText>
-                                </CardBody>
-                            </Card>
+                            <ListGroupItem key={m.id}>
+                                <ListGroupItemHeading className={textColor}>{m.patient}</ListGroupItemHeading>
+                                <div className="d-flex justify-content-between">
+                                    <div><span>{tableHeaders.DEPARTMENT}</span>: <span>{m.department.name}</span></div>
+                                    <div><span>{tableHeaders.ATTENDEE}</span>: <span>{m.attendee.name}</span></div>
+                                </div>
+                                <div className="d-flex justify-content-between">
+                                    <small>{stringUtils.getDateString(new Date(m.reportDate))}</small>
+                                    <small>{m.therapist}</small>
+                                </div>
+                            </ListGroupItem>
                         ))}
-                    </CardColumns>
+                    </ListGroup>
                 </MobileView>
 
             </CustomLoader >

@@ -19,7 +19,7 @@ export const validation = {
 export const fields = {
     PATIENT_NAME: 'שם המטופל',
     DEPARTMENT: 'אגף',
-    ATTENDEE: 'עם מי',
+    ATTENDEE: 'נוכחים',
 };
 
 export const buttons = {
@@ -33,7 +33,7 @@ export const titles = {
     ADD_MEETING: 'הוספת דיווח',
     LATEST_MEETINGS: 'דיווחים אחרונים',
     DEPARTMENTS: 'אגפים',
-    ATTENDEES: 'עם מי',
+    ATTENDEES: 'נוכחים',
     ADMIN_LISTS: 'ניהול רשימות'
 };
 
@@ -41,7 +41,7 @@ export const tableHeaders = {
     THERAPIST: 'מטפל',
     PATIENT: 'מטופל',
     DEPARTMENT: 'אגף',
-    ATTENDEE: 'עם מי',
+    ATTENDEE: 'נוכחים',
     REPORT_DATE: 'תאריך',
 };
 
