@@ -59,7 +59,7 @@ class DepartmentStore {
             this.isAction = true;
             const newDepartment = await departmentTransportLayer.createDepartment(name);
             this.departments.push(newDepartment);
-            this.rootStore.uiState.showAlert(actionResults.OK, bsColors.SUCCESS);
+            this.rootStore.uiState.showAlert(actionResults.OK, bsColors.SUCCESS, false);
         }
         catch (error) {
             throw error;

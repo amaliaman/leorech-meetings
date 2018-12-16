@@ -3,10 +3,10 @@ import { observable, action } from 'mobx';
 import { actionResults, bsColors } from '../constants/strings';
 import meetingTransportLayer from '../transportLayer/MeetingTransportLayer';
 
-class MeetingStore {
-    /** Amount of meetings to return */
-    PAGE_SIZE = 5;
+/** Amount of meetings to return */
+const PAGE_SIZE = 5;
 
+class MeetingStore {
     /** The array of meetings */
     @observable meetings = [];
 
@@ -29,7 +29,7 @@ class MeetingStore {
      */
     constructor(rootStore) {
         this.rootStore = rootStore;
-        this.getLatestMeetings(this.PAGE_SIZE);
+        this.getLatestMeetings(PAGE_SIZE);
     }
 
     @action getLatestMeetings = async pageSize => {
@@ -53,11 +53,11 @@ class MeetingStore {
             const newMeeting = await meetingTransportLayer.createMeeting(meeting);
             if (newMeeting.id) {
                 this.meetings.unshift(newMeeting);
-                this.meetings.splice(this.meetings.length - 1, 1);
-                this.rootStore.uiState.showAlert(actionResults.OK, bsColors.SUCCESS);
+                (this.meetings.length > PAGE_SIZE) && this.meetings.splice(this.meetings.length - 1, 1);
+                this.rootStore.uiState.showAlert(actionResults.OK, bsColors.SUCCESS, false);
             }
             else {
-                this.rootStore.uiState.showAlert(actionResults.FAIL, bsColors.DANGER);
+                this.rootStore.uiState.showAlert(actionResults.FAIL, bsColors.DANGER, true);
             }
             this.isAction = false;
         }

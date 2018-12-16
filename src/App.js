@@ -15,8 +15,8 @@ import AlertWrapper from './components/general/AlertWrapper';
 
 @inject(stores => {
     const { isAddModalOpen, toggleAddModal } = stores.rootStore.meetingStore;
-    const { isAlertVisible, onAlertDismiss, alertColor, alertText } = stores.rootStore.uiState;
-    return { isAddModalOpen, toggleAddModal, isAlertVisible, onAlertDismiss, alertColor, alertText };
+    const { isAlertVisible, hideAlert, alertColor, alertText } = stores.rootStore.uiState;
+    return { isAddModalOpen, toggleAddModal, isAlertVisible, hideAlert, alertColor, alertText };
 })
 @observer
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
                         <AlertWrapper
                             color={this.props.alertColor}
                             visible={this.props.isAlertVisible}
-                            onDismiss={this.props.onAlertDismiss}
+                            onDismiss={this.props.hideAlert}
                             alertText={this.props.alertText} />
                             
                         <Route path={routes.HOME} exact component={Home} />
