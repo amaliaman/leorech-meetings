@@ -45,10 +45,15 @@
     stroke: var(--tone1-light);
 }
 
+/* admin */
+.admin-lists{
+    /* display: grid; */
+
+}
 
 @import './styles/bootstrap-rtl.min.css';
 /* @import './styles/new-meeting.css'; */
 
-@import './styles/meetings-table.css';
+/* @import './styles/meetings-table.css'; */
 /* @import './styles/loader.css'; */
 /* @import './styles/forms.css'; */
