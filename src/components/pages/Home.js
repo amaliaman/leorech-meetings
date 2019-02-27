@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+// import { Button } from 'reactstrap';
 import { inject, observer } from 'mobx-react';
 
 import { MobileView } from '../general/ResponsiveWrappers';
@@ -15,7 +15,8 @@ class Home extends Component {
         return (
             <div>
                 <MobileView>
-                    <Button color={bsColors.INFO} onClick={this.props.toggleAddModal}>{buttons.NEW_MEETING}</Button>
+                    <button type="button" className="btn btn-info" data-toggle="modal" data-target="#exampleModal" onClick={this.props.toggleAddModal}>{buttons.NEW_MEETING}</button>
+                    {/* <Button color={bsColors.INFO} onClick={this.props.toggleAddModal}>{buttons.NEW_MEETING}</Button> */}
                 </MobileView>
                 <h3>{titles.LATEST_MEETINGS}</h3>
                 <MeetingsTable />

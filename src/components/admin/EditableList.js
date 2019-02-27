@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { observable, action } from 'mobx';
 import Modal from 'react-responsive-modal';
-import { Col } from 'reactstrap';
+// import { Col } from 'reactstrap';
 
 import { buttons, formModes } from '../../constants/strings';
 import EditableItem from './EditableItem';
@@ -18,10 +18,11 @@ class EditableList extends Component {
     };
 
     render() {
-        const { title, field, store: { items, createItem, isAction, actionMessage, isLoading, error, deleteItem, updateItem } } = this.props;
+        const { title, field, store: { items, createItem, isAction,
+            actionMessage, isLoading, error, deleteItem, updateItem } } = this.props;
 
         return (
-            <Col md="6">
+            <div className="col-md-6">
                 <h4>{title}</h4>
                 <CustomLoader isLoading={isLoading}>
                     {items.map(i => <EditableItem key={i.id} item={i} deleteItem={deleteItem} updateItem={updateItem} field={field} isAction={isAction} />)}
@@ -38,7 +39,7 @@ class EditableList extends Component {
                         actionMessage={actionMessage}
                     />
                 </Modal>
-            </Col>
+            </div>
         );
     }
 }

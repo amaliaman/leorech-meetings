@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Container, Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink as BsNavLink } from 'reactstrap';
+// import { Container, Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink as BsNavLink } from 'reactstrap';
 
 import { links, routes, APP_TITLE, bsColors, BS_BREAKPOINT } from '../../constants/strings';
 import logo from '../../images/logo.svg';
@@ -39,30 +39,39 @@ class NavBar extends Component {
 
     render() {
         return (
-            <Navbar dark color={bsColors.INFO} expand={BS_BREAKPOINT}>
-                <Container>
+            <nav className="navbar navbar-expand-md bg-danger navbar-dark">
+                <div className="container">
                     <NavLink className='logo navbar-brand' onClick={this.toggleClose} exact to={this.home.to}>
                         <img src={this.home.logoImg} alt='logo' />
                         <span>{this.home.title}</span>
                     </NavLink>
 
-                    <NavbarToggler onClick={this.toggle} />
+                    {/* <NavbarToggler onClick={this.toggle} /> */}
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                        aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
 
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav navbar className="ml-auto">
-                            <NavItem>
-                                <BsNavLink href='#' role='button' onClick={this.toggleModal}>{links.NEW}</BsNavLink>
-                            </NavItem>
+                    <div className="collapse navbar-collapse" id="navbarToggle">
+                        {/* <Collapse isOpen={this.state.isOpen} navbar> */}
+                        <ul className="navbar-nav">
+                            {/* <Nav navbar className="ml-auto"> */}
+                            {/* <NavItem> */}
+                            <li className="nav-item">
+                            <a className="nav-link" href='#' role='button' data-toggle="modal" data-target="#exampleModal" onClick={this.toggleModal}>{links.NEW}</a>
+                                {/* <BsNavLink href='#' role='button' onClick={this.toggleModal}>{links.NEW}</BsNavLink> */}
+                            </li>
 
                             {this.links.map((l, i) => (
-                                <NavItem key={i}>
+                                <li className="nav-item" key={i}>
+                                    {/* <NavItem key={i}> */}
                                     <NavLink className='nav-link' to={l.to} activeClassName='active' onClick={this.toggleClose} exact>{l.title}</NavLink>
-                                </NavItem>
+                                </li>
                             ))}
-                        </Nav>
-                    </Collapse>
-                </Container>
-            </Navbar>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         );
     }
 }

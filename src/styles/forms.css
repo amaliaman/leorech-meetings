@@ -1,4 +1,4 @@
-input::placeholder {
+/* input::placeholder {
     color: #bbbbbb;
 }
 
@@ -51,4 +51,4 @@ select:focus {
 .action-message {
     margin-right: 1rem;
     color: var(--tone3-light);
-}
+} */

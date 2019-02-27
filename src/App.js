@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Container } from 'reactstrap';
+// import { Container } from 'reactstrap';
 import { inject, observer } from 'mobx-react';
 
 import { routes, titles } from './constants/strings';
@@ -27,11 +27,10 @@ class App extends Component {
 
         return (
             <Router>
-                <div><div className="alert alert-danger" role="alert">
-                    טרה לה לה ימין לשמאל יופי</div>
+                <div>
                     <NavBar />
 
-                    <Container>
+                    <div className="container">
                         <AlertWrapper
                             color={this.props.alertColor}
                             visible={this.props.isAlertVisible}
@@ -40,7 +39,7 @@ class App extends Component {
 
                         <Route path={routes.HOME} exact component={Home} />
                         <Route path={routes.ADMIN} exact component={Admin} />
-                    </Container>
+                    </div>
 
                     <ModalWrapper
                         title={titles.ADD_MEETING}

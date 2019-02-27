@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { observable, action } from 'mobx';
-import { Form, FormGroup, Label, Input } from 'reactstrap';
+// import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { validation, fields } from '../../constants/strings';
 import FormFooter from '../general/FormFooter';
@@ -47,56 +47,56 @@ class NewMeetingForm extends Component {
     };
 
     render() {
-        return (
-            <Form onSubmit={this.handleSubmit}>
-                <FormGroup>
-                    <Label>{fields.PATIENT_NAME}</Label>
-                    <Input
-                        type='text'
-                        name='patient'
-                        placeholder={fields.PATIENT_NAME}
-                        value={this.patient}
-                        onChange={this.handleChange}
-                        onInvalid={this.handleRequired}
-                        onInput={this.handleResetRequired}
-                        required
-                    />
-                </FormGroup>
+        return (<h1>hi</h1>
+            // <Form onSubmit={this.handleSubmit}>
+            //     <FormGroup>
+            //         <Label>{fields.PATIENT_NAME}</Label>
+            //         <Input
+            //             type='text'
+            //             name='patient'
+            //             placeholder={fields.PATIENT_NAME}
+            //             value={this.patient}
+            //             onChange={this.handleChange}
+            //             onInvalid={this.handleRequired}
+            //             onInput={this.handleResetRequired}
+            //             required
+            //         />
+            //     </FormGroup>
 
-                <FormGroup>
-                    <Label>{fields.DEPARTMENT}</Label>
-                    <Input
-                        type="select"
-                        name='department'
-                        onChange={this.handleChange}
-                        value={this.department}
-                        onInvalid={this.handleRequired}
-                        onInput={this.handleResetRequired}
-                        required
-                    >
-                        <option value='' disabled>{fields.DEPARTMENT}</option>
-                        {this.props.departments.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
-                    </Input>
-                </FormGroup>
+            //     <FormGroup>
+            //         <Label>{fields.DEPARTMENT}</Label>
+            //         <Input
+            //             type="select"
+            //             name='department'
+            //             onChange={this.handleChange}
+            //             value={this.department}
+            //             onInvalid={this.handleRequired}
+            //             onInput={this.handleResetRequired}
+            //             required
+            //         >
+            //             <option value='' disabled>{fields.DEPARTMENT}</option>
+            //             {this.props.departments.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
+            //         </Input>
+            //     </FormGroup>
 
-                <FormGroup>
-                    <Label>{fields.ATTENDEE}</Label>
-                    <Input
-                        type="select"
-                        name='attendee'
-                        onChange={this.handleChange}
-                        value={this.attendee}
-                        onInvalid={this.handleRequired}
-                        onInput={this.handleResetRequired}
-                        required
-                    >
-                        <option value='' disabled>{fields.ATTENDEE}</option>
-                        {this.props.attendees.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
-                    </Input>
-                </FormGroup>
+            //     <FormGroup>
+            //         <Label>{fields.ATTENDEE}</Label>
+            //         <Input
+            //             type="select"
+            //             name='attendee'
+            //             onChange={this.handleChange}
+            //             value={this.attendee}
+            //             onInvalid={this.handleRequired}
+            //             onInput={this.handleResetRequired}
+            //             required
+            //         >
+            //             <option value='' disabled>{fields.ATTENDEE}</option>
+            //             {this.props.attendees.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
+            //         </Input>
+            //     </FormGroup>
 
-                <FormFooter cancel={this.props.toggleAddModal} isAction={this.props.isAction} />
-            </Form>
+            //     <FormFooter cancel={this.props.toggleAddModal} isAction={this.props.isAction} />
+            // </Form>
         );
     }
 }
