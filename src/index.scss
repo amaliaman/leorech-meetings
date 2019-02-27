@@ -1,64 +1,10 @@
-:root {
-    /* colors */
-    --tone1: #4b98d2;
-    --tone1-light: #87c7ed;
-    --tone2: #d51383;
-    --tone2-light: #e180b4;
-    --tone3: #4da547;
-    --tone3-light: #95cb5e;
-    --tone4: #f4f0ee;
-    --tone4-dark: #e9dfd9;
-    --shadow: #666666;
-    --bg-light: var(--tone4);
-    --bg-dark: var(--tone1);
-    --text-light: var(--tone3-light);
-    /* fonts */
-    --text-shadow: 1px 1px 0 var(--shadow);
-    /* dimensions */
-    --page-top-margin: 4.5rem;
-    --main-margin: 0.8rem;
-    --input-margin: 0.5rem;
-    --title-text-height: 1.9rem;
-}
-
 .logo img {
     height: 2rem;
     margin-inline-end: 1rem;
 }
 
-/* forms */
-
-.button-row button:not(:last-child) {
-    margin-inline-end: 0.5rem;
-}
-
-.action-indicator {
-    display: inline-block;
-}
-
-.action-indicator svg {
-    fill: var(--tone3-light);
-    height: 0.5rem;
-}
-
-/* loader */
-
-.loader-container svg {
-    stroke: var(--tone1-light);
-}
-
-/* admin */
-
-.admin-lists {
-    /* display: grid; */
-}
-
-// @import './styles/bootstrap-rtl.min.css';
-$left: left;
-$right: right;
 @import './styles/var_overrides';
-@import "~bootswatch/dist/cosmo/variables";
-@import "~bootstrap/scss/bootstrap";
-@import "~bootswatch/dist/cosmo/bootswatch";
-// @import '~bootstrap/scss/bootstrap.scss';
-// @import './styles/rtl';
+@import '~bootswatch/dist/materia/variables';
+// rtl support - https://github.com/MahdiMajidzadeh/bootstrap-v4-rtl/tree/v4/scss
+@import './styles/scss/bootstrap-rtl.scss';
+@import '~bootswatch/dist/materia/bootswatch';

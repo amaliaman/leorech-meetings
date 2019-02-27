@@ -72,3 +72,8 @@ export const bsColors = {
     WARNING: 'warning',
     DANGER: 'danger',
 };
+
+export const directions = {
+    RTL: 'rtl',
+    LTR: 'ltr',
+}

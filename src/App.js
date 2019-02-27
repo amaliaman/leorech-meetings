@@ -14,15 +14,21 @@ import AlertWrapper from './components/general/AlertWrapper';
 
 @inject(stores => {
     const { isAddModalOpen, toggleAddModal } = stores.rootStore.meetingStore;
-    const { isAlertVisible, hideAlert, alertColor, alertText } = stores.rootStore.uiState;
-    return { isAddModalOpen, toggleAddModal, isAlertVisible, hideAlert, alertColor, alertText };
+    const { isAlertVisible, hideAlert, alertColor, alertText, setDirectionRtl } = stores.rootStore.uiState;
+    return {
+        isAddModalOpen, toggleAddModal, isAlertVisible, hideAlert,
+        alertColor, alertText, setDirectionRtl
+    };
 })
 @observer
 class App extends Component {
     render() {
+        this.props.setDirectionRtl();
+
         return (
             <Router>
-                <div>
+                <div><div className="alert alert-danger" role="alert">
+                    טרה לה לה ימין לשמאל יופי</div>
                     <NavBar />
 
                     <Container>
@@ -31,7 +37,7 @@ class App extends Component {
                             visible={this.props.isAlertVisible}
                             onDismiss={this.props.hideAlert}
                             alertText={this.props.alertText} />
-                            
+
                         <Route path={routes.HOME} exact component={Home} />
                         <Route path={routes.ADMIN} exact component={Admin} />
                     </Container>
