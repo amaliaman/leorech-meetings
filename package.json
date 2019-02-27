@@ -17,6 +17,8 @@
     "babel-plugin-named-asset-import": "^0.2.3",
     "babel-preset-react-app": "^6.1.0",
     "bfj": "6.1.1",
+    "bootstrap": "^4.3.1",
+    "bootswatch": "^4.3.1",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",
     "concurrently": "^4.0.1",
@@ -44,6 +46,7 @@
     "mobx": "^5.5.2",
     "mobx-react": "^5.3.6",
     "moment": "^2.22.2",
+    "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "path": "^0.12.7",
     "pg": "^7.6.0",
@@ -142,5 +145,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "string-replace-loader": "^2.1.1"
   }
 }

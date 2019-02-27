@@ -27,6 +27,7 @@
 }
 
 /* forms */
+
 .button-row button:not(:last-child) {
     margin-inline-end: 0.5rem;
 }
@@ -41,19 +42,23 @@
 }
 
 /* loader */
+
 .loader-container svg {
     stroke: var(--tone1-light);
 }
 
 /* admin */
-.admin-lists{
-    /* display: grid; */
 
+.admin-lists {
+    /* display: grid; */
 }
 
-@import './styles/bootstrap-rtl.min.css';
-/* @import './styles/new-meeting.css'; */
-
-/* @import './styles/meetings-table.css'; */
-/* @import './styles/loader.css'; */
-/* @import './styles/forms.css'; */
+// @import './styles/bootstrap-rtl.min.css';
+$left: left;
+$right: right;
+@import './styles/var_overrides';
+@import "~bootswatch/dist/cosmo/variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootswatch/dist/cosmo/bootswatch";
+// @import '~bootstrap/scss/bootstrap.scss';
+// @import './styles/rtl';

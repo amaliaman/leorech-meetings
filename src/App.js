@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import { inject, observer } from 'mobx-react';
 
-// import './App.css';
 import { routes, titles } from './constants/strings';
 
-import Home from './pages/Home';
-import Admin from './pages/Admin';
+import Home from './components/pages/Home';
+import Admin from './components/pages/Admin';
 import NavBar from './components/general/NavBar';
 import ModalWrapper from './components/general/ModalWrapper';
 import NewMeetingForm from './components/newMeeting/NewMeetingForm';

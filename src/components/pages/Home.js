@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { inject, observer } from 'mobx-react';
 
-import { MobileView } from '../components/general/ResponsiveWrappers';
-import { titles, buttons, bsColors } from '../constants/strings';
-import MeetingsTable from '../components/main/MeetingsTable';
+import { MobileView } from '../general/ResponsiveWrappers';
+import { titles, buttons, bsColors } from '../../constants/strings';
+import MeetingsTable from '../main/MeetingsTable';
 
 @inject(stores => ({
     toggleAddModal: stores.rootStore.meetingStore.toggleAddModal

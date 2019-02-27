@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { Row } from 'reactstrap';
 
-import { titles, fields } from '../constants/strings';
-import EditableList from '../components/admin/EditableList';
+import { titles, fields } from '../../constants/strings';
+import EditableList from '../admin/EditableList';
 
 @inject(stores => ({
     departmentStore: stores.rootStore.departmentStore,
