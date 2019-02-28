@@ -72,8 +72,8 @@ class ItemForm extends Component {
                     }
                     <div className='button-indicator'>
                         <div>
-                            <button type='submit'>{buttons.SUBMIT}</button>
-                            <button type='reset' onClick={toggle}>{buttons.CANCEL}</button>
+                            <button className='btn' type='submit'>{buttons.SUBMIT}</button>
+                            <button className='btn' type='reset' onClick={toggle}>{buttons.CANCEL}</button>
                             <ActionIndicator isAction={isAction} actionMessage={actionMessage} />
                         </div>
                     </div>

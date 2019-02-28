@@ -7,7 +7,7 @@ import { routes, titles } from './constants/strings';
 
 import Home from './components/pages/Home';
 import Admin from './components/pages/Admin';
-import NavBar from './components/general/NavBar';
+import NavBar from './components/common/navbar/NavBar';
 import ModalWrapper from './components/general/ModalWrapper';
 import NewMeetingForm from './components/newMeeting/NewMeetingForm';
 import AlertWrapper from './components/general/AlertWrapper';
