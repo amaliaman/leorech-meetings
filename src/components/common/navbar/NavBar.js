@@ -43,7 +43,7 @@ class NavBar extends Component {
                     <div className='collapse navbar-collapse' id='navbarToggle'>
                         <ul className='navbar-nav'>
                             <li className='nav-item'>
-                                <a className='nav-link' href='#' role='button' data-toggle='modal' data-target='#exampleModal'>
+                                <a className='nav-link' href='#' role='button' data-toggle='modal' data-target='#newMeetingModal'>
                                     {links.NEW}
                                 </a>
                             </li>

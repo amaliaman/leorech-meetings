@@ -8,22 +8,18 @@ import { routes, titles } from './constants/strings';
 import Home from './components/pages/Home';
 import Admin from './components/pages/Admin';
 import NavBar from './components/common/navbar/NavBar';
-import ModalWrapper from './components/general/ModalWrapper';
+import Modal from './components/common/modal/ModalWrapper';
 import NewMeetingForm from './components/newMeeting/NewMeetingForm';
 import AlertWrapper from './components/general/AlertWrapper';
 
 @inject(stores => {
-    const { isAddModalOpen, toggleAddModal } = stores.rootStore.meetingStore;
     const { isAlertVisible, hideAlert, alertColor, alertText, setDirectionRtl } = stores.rootStore.uiState;
-    return {
-        isAddModalOpen, toggleAddModal, isAlertVisible, hideAlert,
-        alertColor, alertText, setDirectionRtl
-    };
+    return { isAlertVisible, hideAlert, alertColor, alertText, setDirectionRtl };
 })
 @observer
 class App extends Component {
     render() {
-        this.props.setDirectionRtl();
+        this.props.setDirectionRtl(); // TODO: move to store
 
         return (
             <Router>
@@ -41,13 +37,9 @@ class App extends Component {
                         <Route path={routes.ADMIN} exact component={Admin} />
                     </div>
 
-                    <ModalWrapper
-                        title={titles.ADD_MEETING}
-                        isOpen={this.props.isAddModalOpen}
-                        toggle={this.props.toggleAddModal}
-                    >
+                    <Modal title={titles.ADD_MEETING} modalId='newMeetingModal'>
                         <NewMeetingForm />
-                    </ModalWrapper>
+                    </Modal>
                 </div>
             </Router>
         );

@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { observable, action } from 'mobx';
-// import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { validation, fields } from '../../constants/strings';
 import FormFooter from '../general/FormFooter';
+import { FormRow } from '../common/form/FormRow';
+import { FormInputText, FormInputSelect } from '../common/form/FormInputs';
 
 @inject(stores => {
     const { departments } = stores.rootStore.departmentStore;
     const { attendees } = stores.rootStore.attendeeStore;
-    const { createMeeting, isAction, toggleAddModal } = stores.rootStore.meetingStore;
-    return { departments, attendees, createMeeting, isAction, toggleAddModal };
+    const { createMeeting, isAction } = stores.rootStore.meetingStore;
+    return { departments, attendees, createMeeting, isAction };
 })
 @observer
 class NewMeetingForm extends Component {
@@ -18,7 +19,7 @@ class NewMeetingForm extends Component {
     @observable department = '';
     @observable attendee = '';
 
-    handleChange = e => {
+    @action handleChange = e => {
         this[e.target.name] = e.target.value;
     };
 
@@ -40,65 +41,57 @@ class NewMeetingForm extends Component {
             reportDate: Date.now(),
         };
         await this.props.createMeeting(meeting);
-        this.props.toggleAddModal();
+        // this.props.toggleAddModal();
         this.patient = '';
         this.department = '';
         this.attendee = '';
     };
 
     render() {
-        return (<h1>hi</h1>
-            // <Form onSubmit={this.handleSubmit}>
-            //     <FormGroup>
-            //         <Label>{fields.PATIENT_NAME}</Label>
-            //         <Input
-            //             type='text'
-            //             name='patient'
-            //             placeholder={fields.PATIENT_NAME}
-            //             value={this.patient}
-            //             onChange={this.handleChange}
-            //             onInvalid={this.handleRequired}
-            //             onInput={this.handleResetRequired}
-            //             required
-            //         />
-            //     </FormGroup>
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <FormRow label={fields.PATIENT_NAME}>
+                    <FormInputText
+                        name='patient'
+                        placeholder={fields.PATIENT_NAME}
+                        value={this.patient}
+                        onChange={this.handleChange}
+                        onInvalid={this.handleRequired}
+                        onInput={this.handleResetRequired}
+                        required
+                    />
+                </FormRow>
 
-            //     <FormGroup>
-            //         <Label>{fields.DEPARTMENT}</Label>
-            //         <Input
-            //             type="select"
-            //             name='department'
-            //             onChange={this.handleChange}
-            //             value={this.department}
-            //             onInvalid={this.handleRequired}
-            //             onInput={this.handleResetRequired}
-            //             required
-            //         >
-            //             <option value='' disabled>{fields.DEPARTMENT}</option>
-            //             {this.props.departments.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
-            //         </Input>
-            //     </FormGroup>
+                <FormRow label={fields.DEPARTMENT}>
+                    <FormInputSelect
+                        name='department'
+                        label={fields.DEPARTMENT}
+                        options={this.props.departments}
+                        onChange={this.handleChange}
+                        value={this.department}
+                        onInvalid={this.handleRequired}
+                        onInput={this.handleResetRequired}
+                        required
+                    />
+                </FormRow>
 
-            //     <FormGroup>
-            //         <Label>{fields.ATTENDEE}</Label>
-            //         <Input
-            //             type="select"
-            //             name='attendee'
-            //             onChange={this.handleChange}
-            //             value={this.attendee}
-            //             onInvalid={this.handleRequired}
-            //             onInput={this.handleResetRequired}
-            //             required
-            //         >
-            //             <option value='' disabled>{fields.ATTENDEE}</option>
-            //             {this.props.attendees.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
-            //         </Input>
-            //     </FormGroup>
+                <FormRow label={fields.ATTENDEE}>
+                    <FormInputSelect
+                        name='attendee'
+                        label={fields.ATTENDEE}
+                        options={this.props.attendees}
+                        onChange={this.handleChange}
+                        value={this.attendee}
+                        onInvalid={this.handleRequired}
+                        onInput={this.handleResetRequired}
+                        required
+                    />
+                </FormRow>
 
-            //     <FormFooter cancel={this.props.toggleAddModal} isAction={this.props.isAction} />
-            // </Form>
+                <FormFooter cancel={this.props.toggleAddModal} isAction={this.props.isAction} />
+            </form>
         );
     }
 }
-
+// TODO: add id to label for click input, pladeholder+disabled option color brighter
 export default NewMeetingForm;
