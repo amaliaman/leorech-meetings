@@ -17,7 +17,7 @@ class UiState {
         () => this.direction,
         direction => {
             if (direction === directions.RTL) {
-                document.body.classList.add(directions.RTL);
+                document.body.dir = directions.RTL;
             }
         }
     );

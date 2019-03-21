@@ -5,9 +5,9 @@ import classNames from 'classnames';
 
 import styles from './NavBar.module.scss';
 
-import { links, routes, APP_TITLE } from '../../../constants/strings';
-import StringUtils from '../../../utils/StringUtils';
-import logo from '../../../images/logo.svg';
+import { links, routes, APP_TITLE } from '../../constants/strings';
+import StringUtils from '../../utils/StringUtils';
+import logo from '../../images/logo.svg';
 
 @inject(stores => ({
     toggleAddModal: stores.rootStore.meetingStore.toggleAddModal
@@ -43,7 +43,7 @@ class NavBar extends Component {
                     <div className='collapse navbar-collapse' id='navbarToggle'>
                         <ul className='navbar-nav'>
                             <li className='nav-item'>
-                                <a className='nav-link' href='#' role='button' data-toggle='modal' data-target='#newMeetingModal'>
+                                <a className='button is-primary is-outlined is-loading' href='#' role='button' data-toggle='modal' data-target='#newMeetingModal'>
                                     {links.NEW}
                                 </a>
                             </li>
@@ -62,7 +62,7 @@ class NavBar extends Component {
 const NavBarLink = props => {
     return (
         <li className='nav-item'>
-            <NavLink className='nav-link' to={props.to} activeClassName='active' exact>
+            <NavLink className='button is-danger' to={props.to} activeClassName='active' exact>
                 {props.title}
             </NavLink>
         </li>
