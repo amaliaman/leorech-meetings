@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import { Container } from 'reactstrap';
 import { inject, observer } from 'mobx-react';
 
-import { routes, titles } from './constants/strings';
+import { routes } from './constants/strings';
 
 import Home from './components/pages/Home';
-import Admin from './components/pages/Admin';
+import Admin from './components/pages/admin/Admin';
+
 import NavBar from './components/common/navbar/NavBar';
-import Modal from './components/common/modal/ModalWrapper';
-import NewMeetingForm from './components/newMeeting/NewMeetingForm';
 import AlertWrapper from './components/general/AlertWrapper';
+import NewMeetingModal from './components/newMeeting/NewMeetingModal';
 
 @inject(stores => {
-    const { isAlertVisible, hideAlert, alertColor, alertText, setDirectionRtl } = stores.rootStore.uiState;
-    return { isAlertVisible, hideAlert, alertColor, alertText, setDirectionRtl };
+    const { isAlertVisible, hideAlert, alertColor, alertText } = stores.rootStore.uiState;
+    return { isAlertVisible, hideAlert, alertColor, alertText };
 })
 @observer
 class App extends Component {
     render() {
-        this.props.setDirectionRtl(); // TODO: move to store
 
         return (
             <Router>
-                <div>
+                <>
                     <NavBar />
 
                     <div className="container">
@@ -37,10 +35,8 @@ class App extends Component {
                         <Route path={routes.ADMIN} exact component={Admin} />
                     </div>
 
-                    <Modal title={titles.ADD_MEETING} modalId='newMeetingModal'>
-                        <NewMeetingForm />
-                    </Modal>
-                </div>
+                    <NewMeetingModal />
+                </>
             </Router>
         );
     }

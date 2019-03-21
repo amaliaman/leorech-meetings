@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const FormRow = props => {
+const FormRow = props => {
     return (
         <div className="form-group row">
             <label className="col-sm-3 col-form-label">{props.label}</label>
@@ -8,5 +8,7 @@ export const FormRow = props => {
                 {props.children}
             </div>
         </div>
-    )
+    );
 };
+
+export default FormRow;

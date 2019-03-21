@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { observable, action } from 'mobx';
 
-import { validation, fields } from '../../constants/strings';
-import FormFooter from '../general/FormFooter';
-import { FormRow } from '../common/form/FormRow';
+import { fields } from '../../constants/strings';
+import FormRow from '../common/form/FormRow';
 import { FormInputText, FormInputSelect } from '../common/form/FormInputs';
 
 @inject(stores => {
@@ -23,16 +22,9 @@ class NewMeetingForm extends Component {
         this[e.target.name] = e.target.value;
     };
 
-    handleRequired = e => {
-        e.target.setCustomValidity(validation.REQUIRED);
-    };
-
-    handleResetRequired = e => {
-        e.target.setCustomValidity('');
-    };
-
     @action handleSubmit = async e => {
         e.preventDefault();
+
         const meeting = {
             patient: this.patient,
             therapist: 'אלינה', // TODO: replace with current user ///////////////
@@ -41,7 +33,8 @@ class NewMeetingForm extends Component {
             reportDate: Date.now(),
         };
         await this.props.createMeeting(meeting);
-        // this.props.toggleAddModal();
+
+        // this.props.toggleModal(false);////////////////////
         this.patient = '';
         this.department = '';
         this.attendee = '';
@@ -49,15 +42,13 @@ class NewMeetingForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} id={this.props.formId}>
                 <FormRow label={fields.PATIENT_NAME}>
                     <FormInputText
                         name='patient'
                         placeholder={fields.PATIENT_NAME}
                         value={this.patient}
                         onChange={this.handleChange}
-                        onInvalid={this.handleRequired}
-                        onInput={this.handleResetRequired}
                         required
                     />
                 </FormRow>
@@ -69,8 +60,6 @@ class NewMeetingForm extends Component {
                         options={this.props.departments}
                         onChange={this.handleChange}
                         value={this.department}
-                        onInvalid={this.handleRequired}
-                        onInput={this.handleResetRequired}
                         required
                     />
                 </FormRow>
@@ -82,16 +71,12 @@ class NewMeetingForm extends Component {
                         options={this.props.attendees}
                         onChange={this.handleChange}
                         value={this.attendee}
-                        onInvalid={this.handleRequired}
-                        onInput={this.handleResetRequired}
                         required
                     />
                 </FormRow>
-
-                <FormFooter cancel={this.props.toggleAddModal} isAction={this.props.isAction} />
             </form>
         );
     }
 }
-// TODO: add id to label for click input, pladeholder+disabled option color brighter
+
 export default NewMeetingForm;

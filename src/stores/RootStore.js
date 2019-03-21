@@ -15,6 +15,7 @@ class RootStore {
         this.attendeeStore = new AttendeeStore(this);
         this.meetingStore = new MeetingStore(this);
         this.uiState = new UiState(this);
+        this.uiState.setDirectionRtl();
     }
 
     @action handleAjaxErrors = () => {
