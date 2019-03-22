@@ -67,20 +67,20 @@ $tabs-toggle-link-active-color: $link-invert !default
     flex-shrink: 0
     justify-content: flex-start
     &.is-left
-      padding-right: 0.75em
+      padding-inline-end: 0.75em
     &.is-center
       flex: none
       justify-content: center
-      padding-left: 0.75em
-      padding-right: 0.75em
+      padding-inline-start: 0.75em
+      padding-inline-end: 0.75em
     &.is-right
       justify-content: flex-end
-      padding-left: 0.75em
+      padding-inline-start: 0.75em
   .icon
     &:first-child
-      margin-right: 0.5em
+      margin-inline-end: 0.5em
     &:last-child
-      margin-left: 0.5em
+      margin-inline-start: 0.5em
   // Alignment
   &.is-centered
     ul
@@ -119,7 +119,7 @@ $tabs-toggle-link-active-color: $link-invert !default
         z-index: 2
     li
       & + li
-        margin-left: -#{$tabs-toggle-link-border-width}
+        margin-inline-start: -#{$tabs-toggle-link-border-width}
       &:first-child a
         border-radius: $tabs-toggle-link-radius 0 0 $tabs-toggle-link-radius
       &:last-child a
@@ -137,11 +137,11 @@ $tabs-toggle-link-active-color: $link-invert !default
         &:first-child a
           border-bottom-left-radius: $radius-rounded
           border-top-left-radius: $radius-rounded
-          padding-left: 1.25em
+          padding-inline-start: 1.25em
         &:last-child a
           border-bottom-right-radius: $radius-rounded
           border-top-right-radius: $radius-rounded
-          padding-right: 1.25em
+          padding-inline-end: 1.25em
   // Sizes
   &.is-small
     font-size: $size-small

@@ -32,8 +32,8 @@ $panel-icon-color: $text-light !default
 .panel-tabs,
 .panel-block
   border-bottom: $panel-item-border
-  border-left: $panel-item-border
-  border-right: $panel-item-border
+  border-inline-start: $panel-item-border
+  border-inline-end: $panel-item-border
   &:first-child
     border-top: $panel-item-border
 
@@ -73,7 +73,7 @@ $panel-icon-color: $text-light !default
   justify-content: flex-start
   padding: 0.5em 0.75em
   input[type="checkbox"]
-    margin-right: 0.75em
+    margin-inline-end: 0.75em
   & > .control
     flex-grow: 1
     flex-shrink: 1
@@ -81,7 +81,7 @@ $panel-icon-color: $text-light !default
   &.is-wrapped
     flex-wrap: wrap
   &.is-active
-    border-left-color: $panel-block-active-border-left-color
+    border-inline-start-color: $panel-block-active-border-left-color
     color: $panel-block-active-color
     .panel-icon
       color: $panel-block-active-icon-color
@@ -95,7 +95,7 @@ label.panel-block
 .panel-icon
   +fa(14px, 1em)
   color: $panel-icon-color
-  margin-right: 0.75em
+  margin-inline-end: 0.75em
   .fa
     font-size: inherit
     line-height: inherit
