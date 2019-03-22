@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 
 import './styles/index.scss';
-import 'bulma/css/bulma.min.css';
-
+import './styles/bulma-bidi/bulma.sass';
 
 import App from './App';
 import rootStore from '../src/stores/RootStore';
