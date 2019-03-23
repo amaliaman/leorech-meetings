@@ -15,7 +15,13 @@ class RootStore {
         this.attendeeStore = new AttendeeStore(this);
         this.meetingStore = new MeetingStore(this);
         this.uiState = new UiState(this);
-    }
+        this.setDirection('rtl');//////////////// use mobx 
+    };
+
+    setDirection = (dir) => {
+        document.body.dir = dir;
+        document.body.classList.add(dir);/// change, not add
+    };
 
     @action handleAjaxErrors = () => {
         axios.interceptors.response.use(

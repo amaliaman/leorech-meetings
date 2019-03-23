@@ -1,0 +1,8 @@
+@import "~bootswatch/dist/materia/variables";
+@import "~bootstrap-v4-rtl/scss/bootstrap-rtl";// conditionally load rtl ot ltr
+@import "~bootswatch/dist/materia/bootswatch";
+
+.logo img {
+    height: 2rem;
+    margin-inline-end: 1rem;
+}
