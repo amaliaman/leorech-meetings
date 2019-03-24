@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
-import Modal from 'react-responsive-modal';
+// import Modal from 'react-responsive-modal';
 
 import * as icons from '../../constants/icons';
 import { formModes } from '../../constants/strings';
@@ -47,7 +47,7 @@ class EditableItem extends Component {
                 <span className='icon-btn' onClick={this.handleEditClick}>{icons.EDIT}</span>
                 <span className='icon-btn' onClick={this.handleDeleteClick}>{icons.TRASH}</span>
                 <span>{item.name}</span>
-                <Modal open={this.isModalOpen} onClose={this.toggleModal} center>
+                {/* <Modal open={this.isModalOpen} onClose={this.toggleModal} center>
                     <ItemForm
                         formAction={this.formAction}
                         formMode={this.formMode}
@@ -57,7 +57,7 @@ class EditableItem extends Component {
                         actionMessage={actionMessage}
                         item={item}
                     />
-                </Modal>
+                </Modal> */}
             </div>
         );
     }

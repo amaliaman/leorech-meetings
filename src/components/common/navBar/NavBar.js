@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Container, Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink as BsNavLink } from 'reactstrap';
-
-import { links, routes, APP_TITLE, bsColors, BS_BREAKPOINT } from '../../constants/strings';
-import logo from '../../images/logo.svg';
 import { inject, observer } from 'mobx-react';
+import {
+    Container, Collapse, Navbar, NavbarToggler,
+    Nav, NavItem, NavLink as BsNavLink
+} from 'reactstrap';
+
+import { links, routes, APP_TITLE, bsColors, BS_BREAKPOINT } from '../../../constants/strings';
+import logo from '../../../images/logo.svg';
+
+import './NavBar.scss';
 
 @inject(stores => ({
     toggleAddModal: stores.rootStore.meetingStore.toggleAddModal
@@ -22,31 +27,31 @@ class NavBar extends Component {
         ];
     }
 
-    toggle = () => {
+    toggleNavbar = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
 
-    toggleClose = () => {
-        this.state.isOpen && this.toggle();
+    toggleNavbarClose = () => {
+        this.state.isOpen && this.toggleNavbar();
     };
 
     toggleModal = () => {
         this.props.toggleAddModal();
-        this.toggleClose();
+        this.toggleNavbarClose();
     };
 
     render() {
         return (
             <Navbar dark color={bsColors.INFO} expand={BS_BREAKPOINT}>
                 <Container>
-                    <NavLink className='logo navbar-brand' onClick={this.toggleClose} exact to={this.home.to}>
+                    <NavLink className='logo navbar-brand' onClick={this.toggleNavbarClose} exact to={this.home.to}>
                         <img src={this.home.logoImg} alt='logo' />
                         <span>{this.home.title}</span>
                     </NavLink>
 
-                    <NavbarToggler onClick={this.toggle} />
+                    <NavbarToggler onClick={this.toggleNavbar} />
 
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav navbar className="ml-auto">
@@ -56,7 +61,7 @@ class NavBar extends Component {
 
                             {this.links.map((l, i) => (
                                 <NavItem key={i}>
-                                    <NavLink className='nav-link' to={l.to} activeClassName='active' onClick={this.toggleClose} exact>{l.title}</NavLink>
+                                    <NavLink className='nav-link' to={l.to} activeClassName='active' onClick={this.toggleNavbarClose} exact>{l.title}</NavLink>
                                 </NavItem>
                             ))}
                         </Nav>

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 
-import './styles/styles.scss';
+import './styles/index.scss';
 
 import App from './App';
 import rootStore from '../src/stores/RootStore';

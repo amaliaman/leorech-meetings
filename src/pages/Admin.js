@@ -13,13 +13,13 @@ import EditableList from '../components/admin/EditableList';
 class AdminContainer extends Component {
     render() {
         return (
-            <div>
+            <>
                 <h3>{titles.ADMIN_LISTS}</h3>
                 <Row>
                     <EditableList store={this.props.departmentStore} title={titles.DEPARTMENTS} field={fields.DEPARTMENT} />
                     <EditableList store={this.props.attendeeStore} title={titles.ATTENDEES} field={fields.ATTENDEE} />
                 </Row>
-            </div>
+            </>
         );
     }
 }

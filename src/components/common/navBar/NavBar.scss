@@ -1,0 +1,23 @@
+.rtl {
+    /* bootstrap-rtl fixes */
+    .navbar {
+        .navbar-nav {
+            padding-right: 0;
+
+            .nav-item+.nav-item,
+            [dir="rtl"] .navbar-nav .nav-item+.nav-item {
+                margin-right: unset;
+            }
+        }
+
+        .navbar-brand {
+            margin-left: 1rem;
+            margin-right: unset;
+        }
+    }
+}
+
+.logo img {
+    height: 2rem;
+    margin-inline-end: 1rem;
+}

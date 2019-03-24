@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { Table, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
 
-import CustomLoader from '../general/CustomLoader';
-import { MobileView, DefaultView } from '../general/ResponsiveWrappers';
+import Loader from '../common/loader/Loader';
+import { MobileView, DefaultView } from '../common/responsiveWrappers/ResponsiveWrappers';
 
 import { tableHeaders, bsColors } from '../../constants/strings';
 import stringUtils from '../../utils/StringUtils';
+
+import './MeetingsTable.scss';
 
 @inject(stores => {
     const { meetings, isLoading } = stores.rootStore.meetingStore;
@@ -17,8 +19,9 @@ class MeetingsTable extends Component {
     render() {
         const headers = Object.values(tableHeaders);
         const textColor = `text-${bsColors.INFO}`;
+
         return (
-            <CustomLoader isLoading={this.props.isLoading}>
+            <Loader isLoading={this.props.isLoading} color={bsColors.DANGER}>
 
                 <DefaultView>
                     <Table responsive borderless striped size='sm'>
@@ -59,7 +62,7 @@ class MeetingsTable extends Component {
                     </ListGroup>
                 </MobileView>
 
-            </CustomLoader >
+            </Loader >
         );
     }
 }

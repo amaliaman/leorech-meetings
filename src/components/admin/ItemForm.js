@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import { observable, action } from 'mobx';
 
 import { validation, buttons, formModes, messages } from '../../constants/strings';
-import ActionIndicator from '../general/ActionIndicator';
+// import ActionIndicator from '../general/ActionIndicator';
 
 @observer
 class ItemForm extends Component {
@@ -74,7 +74,7 @@ class ItemForm extends Component {
                         <div>
                             <button type='submit'>{buttons.SUBMIT}</button>
                             <button type='reset' onClick={toggle}>{buttons.CANCEL}</button>
-                            <ActionIndicator isAction={isAction} actionMessage={actionMessage} />
+                            {/* <ActionIndicator isAction={isAction} actionMessage={actionMessage} /> */}
                         </div>
                     </div>
                 </form>

@@ -7,10 +7,10 @@ import { routes, titles } from './constants/strings';
 
 import Home from './pages/Home';
 import Admin from './pages/Admin';
-import NavBar from './components/general/NavBar';
-import ModalWrapper from './components/general/ModalWrapper';
-import NewMeetingForm from './components/newMeeting/NewMeetingForm';
-import AlertWrapper from './components/general/AlertWrapper';
+import NavBar from './components/common/navBar/NavBar';
+import ModalWrapper from './components/common/modalWrapper/ModalWrapper';
+import NewMeetingForm from './components/newMeetingForm/NewMeetingForm';
+import AlertWrapper from './components/common/AlertWrapper';
 
 @inject(stores => {
     const { isAddModalOpen, toggleAddModal } = stores.rootStore.meetingStore;
@@ -30,8 +30,9 @@ class App extends Component {
                             color={this.props.alertColor}
                             visible={this.props.isAlertVisible}
                             onDismiss={this.props.hideAlert}
-                            alertText={this.props.alertText} />
-                            
+                            alertText={this.props.alertText}
+                        />
+
                         <Route path={routes.HOME} exact component={Home} />
                         <Route path={routes.ADMIN} exact component={Admin} />
                     </Container>

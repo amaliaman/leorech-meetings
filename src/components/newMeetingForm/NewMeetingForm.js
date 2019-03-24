@@ -4,7 +4,7 @@ import { observable, action } from 'mobx';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { validation, fields } from '../../constants/strings';
-import FormFooter from '../general/FormFooter';
+import FormFooter from '../common/formFooter/FormFooter';
 
 @inject(stores => {
     const { departments } = stores.rootStore.departmentStore;
@@ -95,7 +95,9 @@ class NewMeetingForm extends Component {
                     </Input>
                 </FormGroup>
 
-                <FormFooter cancel={this.props.toggleAddModal} isAction={this.props.isAction} />
+                <FormGroup>
+                    <FormFooter cancel={this.props.toggleAddModal} isAction={this.props.isAction} />
+                </FormGroup>
             </Form>
         );
     }

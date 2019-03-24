@@ -1,8 +1,8 @@
-@import "~bootswatch/dist/materia/variables";
-@import "~bootstrap-v4-rtl/scss/bootstrap-rtl";// conditionally load rtl ot ltr
-@import "~bootswatch/dist/materia/bootswatch";
+/* Fix dropdown arrow in rtl materia bootswatch theme */
 
-.logo img {
-    height: 2rem;
-    margin-inline-end: 1rem;
+.rtl {
+    select,
+    select.form-control {
+        background-position: left center;
+    }
 }
