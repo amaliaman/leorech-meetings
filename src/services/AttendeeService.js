@@ -1,6 +1,6 @@
 import ajaxUtils from '../utils/AjaxUtils';
 
-class AttendeeTransportLayer {
+class AttendeeService {
 
     /** Get all attendees from server */
     getAttendees = () => {
@@ -9,5 +9,5 @@ class AttendeeTransportLayer {
     };
 }
 
-const attendeeTransportLayer = new AttendeeTransportLayer();
-export default attendeeTransportLayer;
+const attendeeService = new AttendeeService();
+export default attendeeService;

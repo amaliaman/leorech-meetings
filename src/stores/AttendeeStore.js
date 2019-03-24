@@ -1,5 +1,5 @@
 import { observable, action, computed } from 'mobx';
-import attendeeTransportLayer from '../transportLayer/AttendeeTransportLayer';
+import attendeeService from '../services/AttendeeService';
 
 class AttendeeStore {
     @observable attendees = [];
@@ -17,7 +17,7 @@ class AttendeeStore {
      * Fetches all attendees from the server
      */
     @action loadAttendees = async () => {
-        this.attendees = await attendeeTransportLayer.getAttendees();
+        this.attendees = await attendeeService.getAttendees();
     };
 }
 

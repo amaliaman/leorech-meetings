@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx';
 
 import { actionResults, bsColors } from '../constants/strings';
-import meetingTransportLayer from '../transportLayer/MeetingTransportLayer';
+import meetingService from '../services/MeetingService';
 
 /** Amount of meetings to return */
 const PAGE_SIZE = 5;
@@ -35,7 +35,7 @@ class MeetingStore {
     @action getLatestMeetings = async pageSize => {
         try {
             this.isLoading = true;
-            this.meetings = await meetingTransportLayer.getLatestMeetings(pageSize);
+            this.meetings = await meetingService.getLatestMeetings(pageSize);
             this.isLoading = false;
         }
         catch (error) {
@@ -50,7 +50,7 @@ class MeetingStore {
     @action createMeeting = async meeting => {
         try {
             this.isAction = true;
-            const newMeeting = await meetingTransportLayer.createMeeting(meeting);
+            const newMeeting = await meetingService.createMeeting(meeting);
             if (newMeeting.id) {
                 this.meetings.unshift(newMeeting);
                 (this.meetings.length > PAGE_SIZE) && this.meetings.splice(this.meetings.length - 1, 1);

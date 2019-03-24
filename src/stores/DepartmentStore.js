@@ -1,7 +1,7 @@
 import { observable, action, computed } from 'mobx';
 
 import { actionResults, bsColors, errors } from '../constants/strings';
-import departmentTransportLayer from '../transportLayer/DepartmentTransportLayer';
+import departmentService from '../services/DepartmentService';
 
 class DepartmentStore {
     /** The array of departments */
@@ -44,7 +44,7 @@ class DepartmentStore {
     @action loadDepartments = async () => {
         try {
             this.isLoading = true;
-            this.departments = await departmentTransportLayer.getDepartments();
+            this.departments = await departmentService.getDepartments();
         }
         catch (error) {
             this.handleLocalError(error, errors.DEPARTMENT_LOAD);
@@ -57,7 +57,7 @@ class DepartmentStore {
     @action createItem = async name => {
         try {
             this.isAction = true;
-            const newDepartment = await departmentTransportLayer.createDepartment(name);
+            const newDepartment = await departmentService.createDepartment(name);
             this.departments.push(newDepartment);
             this.rootStore.uiState.showAlert(actionResults.OK, bsColors.SUCCESS, false);
         }
@@ -73,7 +73,7 @@ class DepartmentStore {
         try {
             // this.actionMessage = '';
             this.isAction = true;
-            await departmentTransportLayer.deleteDepartment(id);
+            await departmentService.deleteDepartment(id);
             this.departments = this.departments.filter(d => d.id !== id);
             // this.actionMessage = actionResults.OK;
         }
@@ -90,7 +90,7 @@ class DepartmentStore {
         try {
             // this.actionMessage = '';
             this.isAction = true;
-            const updatedDepartment = await departmentTransportLayer.updateDepartment(id, name);
+            const updatedDepartment = await departmentService.updateDepartment(id, name);
             this.departments = this.departments.map(d => d.id === id ? updatedDepartment : d);
             // this.actionMessage = actionResults.OK;
         }

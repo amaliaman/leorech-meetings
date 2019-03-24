@@ -1,6 +1,6 @@
 import ajaxUtils from '../utils/AjaxUtils';
 
-class DepartmentTransportLayer {
+class DepartmentService {
 
     /** Get all departments from server */
     getDepartments = () => {
@@ -27,5 +27,5 @@ class DepartmentTransportLayer {
     };
 }
 
-const departmentTransportLayer = new DepartmentTransportLayer();
-export default departmentTransportLayer;
+const departmentService = new DepartmentService();
+export default departmentService;

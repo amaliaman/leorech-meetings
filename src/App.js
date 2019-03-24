@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import { inject, observer } from 'mobx-react';
 
-// import './App.css';
 import { routes, titles } from './constants/strings';
 
 import Home from './pages/Home';

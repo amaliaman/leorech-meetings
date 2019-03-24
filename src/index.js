@@ -4,7 +4,6 @@ import { Provider } from 'mobx-react';
 
 import './styles/styles.scss';
 
-
 import App from './App';
 import rootStore from '../src/stores/RootStore';
 

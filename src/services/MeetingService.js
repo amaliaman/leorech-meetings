@@ -1,6 +1,6 @@
 import ajaxUtils from '../utils/AjaxUtils';
 
-class MeetingTransportLayer {
+class MeetingService {
 
     /**
      * @param {number} pageSize - Amount of meetings to return
@@ -22,5 +22,5 @@ class MeetingTransportLayer {
     };
 }
 
-const meetingTransportLayer = new MeetingTransportLayer();
-export default meetingTransportLayer;
+const meetingService = new MeetingService();
+export default meetingService;
