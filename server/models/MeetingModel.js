@@ -10,7 +10,7 @@ class MeetingModel {
                 type: Sequelize.STRING,
                 notNull: true
             },
-            ////////////////////////// TODO: should be user ID
+            // TODO: should be user ID
             therapist: {
                 type: Sequelize.STRING,
                 notNull: true
@@ -52,11 +52,11 @@ class MeetingModel {
 
     /**
      * Create a new meeting
-     * @param {string} patient - The patient's name
-     * @param {string} therapist - The therapist's name ////////////// USER ID
-     * @param {Date} reportDate - The date/time the reporting was made
-     * @param {number} departmentId - The department's ID in the DB
-     * @param {number} attendeeId - The attendee's ID in the DB
+     * @param {string} patient The patient's name
+     * @param {string} therapist The therapist's name // TODO: USER ID
+     * @param {Date} reportDate The date/time the reporting was made
+     * @param {number} departmentId The department's ID in the DB
+     * @param {number} attendeeId The attendee's ID in the DB
      * @return {Object} The newly created meeting object
      */
     async createMeeting(patient, therapist, reportDate, departmentId, attendeeId) {

@@ -40,7 +40,7 @@ class MeetingStore {
         }
         catch (error) {
             throw error;
-            // TODO: show global error message /////////////////////////////
+            // TODO: show global error message
         }
     };
 
@@ -63,7 +63,7 @@ class MeetingStore {
         }
         catch (error) {
             throw error;
-            // TODO: show global error message /////////////////////////////
+            // TODO: show global error message
         }
     };
 

@@ -34,7 +34,7 @@ class NewMeetingForm extends Component {
         e.preventDefault();
         const meeting = {
             patient: this.patient,
-            therapist: 'אלינה', // TODO: replace with current user ///////////////
+            therapist: 'אלינה', // TODO: replace with current user
             attendeeId: this.attendee,
             departmentId: this.department,
             reportDate: Date.now(),

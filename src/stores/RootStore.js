@@ -15,12 +15,12 @@ class RootStore {
         this.attendeeStore = new AttendeeStore(this);
         this.meetingStore = new MeetingStore(this);
         this.uiState = new UiState(this);
-        this.setDirection('rtl');//////////////// use mobx 
+        this.setDirection('rtl'); // TODO: use mobx 
     };
 
     setDirection = (dir) => {
         document.body.dir = dir;
-        document.body.classList.add(dir);/// change, not add
+        document.body.classList.add(dir); // TODO: change, not add
     };
 
     @action handleAjaxErrors = () => {

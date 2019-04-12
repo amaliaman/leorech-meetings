@@ -23,7 +23,7 @@ class NavBar extends Component {
         this.home = { title: APP_TITLE, to: routes.HOME, logoImg: logo };
         this.links = [
             { title: links.ADMIN, to: routes.ADMIN },
-            { title: 'התנתק', to: '/logout' },//TODO: dynamic login/logout/////////////////////
+            { title: 'התנתק', to: '/logout' },//TODO: dynamic login/logout
         ];
     }
 
