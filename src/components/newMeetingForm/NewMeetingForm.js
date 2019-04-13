@@ -50,7 +50,8 @@ class NewMeetingForm extends Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
-                    <Label>{fields.PATIENT_NAME}</Label>
+                    // TODO: make wrapped label component, use 'classNames'
+                    <div className='wrapper'><Label className={this.patient.length ? 'full' : ''}>{fields.PATIENT_NAME}</Label></div>
                     <Input
                         type='text'
                         name='patient'
@@ -64,7 +65,7 @@ class NewMeetingForm extends Component {
                 </FormGroup>
 
                 <FormGroup>
-                    <Label>{fields.DEPARTMENT}</Label>
+                    <div className='wrapper'><Label className={this.department.length ? 'full' : ''}>{fields.DEPARTMENT}</Label></div>
                     <Input
                         type="select"
                         name='department'
@@ -80,7 +81,7 @@ class NewMeetingForm extends Component {
                 </FormGroup>
 
                 <FormGroup>
-                    <Label>{fields.ATTENDEE}</Label>
+                    {/* <Label>{fields.ATTENDEE}</Label> */}
                     <Input
                         type="select"
                         name='attendee'
@@ -98,7 +99,7 @@ class NewMeetingForm extends Component {
                 <FormGroup>
                     <FormFooter cancel={this.props.toggleAddModal} isAction={this.props.isAction} />
                 </FormGroup>
-            </Form>
+            </Form >
         );
     }
 }
