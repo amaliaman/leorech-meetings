@@ -7,24 +7,3 @@
         background-position: left center;
     }
 }
-
-// TODO: encapsulate classes for input labels - in wrapped component
-label {
-    position: absolute;
-    margin-bottom: 0px;
-    font-size: 0.6rem;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0.5s, opacity 0.5s linear;
-}
-
-label.full {
-    visibility: visible;
-    opacity: 1;
-}
-
-.wrapper {
-    position: relative;
-    width: 100%;
-    height: 0;
-}

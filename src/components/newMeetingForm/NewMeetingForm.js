@@ -5,6 +5,7 @@ import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { validation, fields } from '../../constants/strings';
 import FormFooter from '../common/formFooter/FormFooter';
+import MiniLabel from '../common/miniLabel/MiniLabel';
 
 @inject(stores => {
     const { departments } = stores.rootStore.departmentStore;
@@ -18,14 +19,17 @@ class NewMeetingForm extends Component {
     @observable department = '';
     @observable attendee = '';
 
+    // TODO: move to form helper
     handleChange = e => {
         this[e.target.name] = e.target.value;
     };
 
+    // TODO: move to form helper
     handleRequired = e => {
         e.target.setCustomValidity(validation.REQUIRED);
     };
 
+    // TODO: move to form helper
     handleResetRequired = e => {
         e.target.setCustomValidity('');
     };
@@ -50,8 +54,7 @@ class NewMeetingForm extends Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
-                    // TODO: make wrapped label component, use 'classNames'
-                    <div className='wrapper'><Label className={this.patient.length ? 'full' : ''}>{fields.PATIENT_NAME}</Label></div>
+                    <MiniLabel isVisible={this.patient.length}>{fields.PATIENT_NAME}</MiniLabel>
                     <Input
                         type='text'
                         name='patient'
@@ -65,7 +68,7 @@ class NewMeetingForm extends Component {
                 </FormGroup>
 
                 <FormGroup>
-                    <div className='wrapper'><Label className={this.department.length ? 'full' : ''}>{fields.DEPARTMENT}</Label></div>
+                    <MiniLabel isVisible={this.department.length}>{fields.DEPARTMENT}</MiniLabel>
                     <Input
                         type="select"
                         name='department'
@@ -81,7 +84,7 @@ class NewMeetingForm extends Component {
                 </FormGroup>
 
                 <FormGroup>
-                    {/* <Label>{fields.ATTENDEE}</Label> */}
+                    <MiniLabel isVisible={this.attendee.length}>{fields.ATTENDEE}</MiniLabel>
                     <Input
                         type="select"
                         name='attendee'

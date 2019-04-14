@@ -1,0 +1,19 @@
+.label-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+
+    label.mini {
+        position: absolute;
+        margin-bottom: 0px;
+        font-size: 0.65rem;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0.35s, opacity 0.35s linear;
+
+        &.label-visible {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
